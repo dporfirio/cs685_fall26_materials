@@ -1,0 +1,104 @@
+// .vscode/tasks.json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "mujoco",
+      "type": "shell",
+      "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && export PROMPT='(stretch_humble) %% ' && print -P 'This terminal is for %F{yellow}`ros2 launch stretch_simulation stretch_mujoco_driver.launch.py use_mujoco_viewer:=true mode:=navigation`%f' && exec zsh -f",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "/bin/zsh",
+          "args": ["-c"]
+        }
+      },
+      "presentation": {
+        "panel": "new",
+        "reveal": "always",
+        "focus": false,
+        "echo": true,
+        "showReuseMessage": false,
+        "close": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "robot",
+      "type": "shell",
+      "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && export PROMPT='(stretch_humble) %% ' && print -P 'This terminal is for %F{yellow}`ros2 launch stretch_nav2 online_async_launch.py use_sim_time:=true`%f' && exec zsh -f",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "/bin/zsh",
+          "args": ["-c"]
+        }
+      },
+      "presentation": {
+        "panel": "new",
+        "reveal": "always",
+        "focus": false,
+        "echo": true,
+        "showReuseMessage": false,
+        "close": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "teleop",
+      "type": "shell",
+      "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && export PROMPT='(stretch_humble) %% ' && print -P 'This terminal is for %F{yellow}`ros2 run teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=stretch/cmd_vel`%f' && exec zsh -f",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "/bin/zsh",
+          "args": ["-c"]
+        }
+      },
+      "presentation": {
+        "panel": "new",
+        "reveal": "always",
+        "focus": false,
+        "echo": true,
+        "showReuseMessage": false,
+        "close": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "rviz2",
+      "type": "shell",
+      "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && export PROMPT='(stretch_humble) %% ' && print -P 'This terminal is for %F{yellow}`rviz2`%f' && exec zsh -f",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "/bin/zsh",
+          "args": ["-c"]
+        }
+      },
+      "presentation": {
+        "panel": "new",
+        "reveal": "always",
+        "focus": false,
+        "echo": true,
+        "showReuseMessage": false,
+        "close": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "open 5 terminals",
+      "dependsOrder": "parallel",
+      "dependsOn": [
+        "mujoco",
+        "robot",
+        "teleop",
+        "rviz2"
+      ],
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

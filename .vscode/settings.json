@@ -1,0 +1,7 @@
+// .vscode/settings.json
+{
+  "terminal.integrated.defaultLocation": "bottom",
+
+  // Optional: avoid being prompted after you trust this workspace
+  "task.allowAutomaticTasks": "on"
+}
