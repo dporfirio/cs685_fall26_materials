@@ -6,6 +6,8 @@ These instructions assume that you have the latest Mac OS.
 
 The following instructions are modified from [here](https://robostack.github.io/GettingStarted.html).
 
+Steps 1-4 need should be performed before opening this project in VSCode.
+
 1. Download Stretch packages:
 
 ```
@@ -51,3 +53,5 @@ python third_party/robosuite/robosuite/scripts/setup_macros.py
 python third_party/robocasa/robocasa/scripts/setup_macros.py
 python third_party/robocasa/robocasa/scripts/download_kitchen_assets.py
 ```
+
+5. Open this project in VSCode. Doing so will load up the required terminals and the correct environments.
