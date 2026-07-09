@@ -11,9 +11,13 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
   <!-- Stretch packages used by the course exercises and development tasks. -->
   <exec_depend>stretch_core</exec_depend>
   <exec_depend>stretch_description</exec_depend>
+  <exec_depend>stretch_deep_perception</exec_depend>
   <exec_depend>stretch_nav2</exec_depend>
   <exec_depend>stretch_simulation</exec_depend>
 

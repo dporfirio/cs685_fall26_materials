@@ -47,7 +47,7 @@
     {
       "label": "robot",
       "type": "shell",
-      "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && env_name=${CONDA_DEFAULT_ENV:-${CONDA_PREFIX:t}} && export PROMPT=\"($env_name) %~ %% \" && print -P 'This terminal is for %F{yellow}`ros2 launch stretch_nav2 online_async_launch.py use_sim_time:=true`%f' && exec zsh -f",
+      "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && env_name=${CONDA_DEFAULT_ENV:-${CONDA_PREFIX:t}} && export PROMPT=\"($env_name) %~ %% \" && print -P 'This terminal is for %F{yellow}`ros2 launch cs685_fall26_materials robot_bringup.launch.py`%f' && exec zsh -f",
       "options": {
         "cwd": "${workspaceFolder}",
         "shell": {

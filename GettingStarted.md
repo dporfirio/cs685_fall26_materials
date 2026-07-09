@@ -4,14 +4,14 @@
 
 These instructions assume that you have the latest Mac OS.
 
-The following instructions are modified from [here](https://robostack.github.io/GettingStarted.html).
+The following instructions must be completed first: [https://robostack.github.io/GettingStarted.html](https://robostack.github.io/GettingStarted.html).
 
 Steps 1-4 need should be performed before opening this project in VSCode.
 
 1. Download Stretch packages:
 
 ```
-cd ~`
+cd ~
 mkdir -p ament_ws & cd ament_ws/src
 git clone -b humble git@github.com:hello-robot/stretch_ros2.git
 ```
