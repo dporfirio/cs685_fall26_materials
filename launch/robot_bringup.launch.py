@@ -26,9 +26,15 @@ def generate_launch_description():
     # the physical robot driver and RealSense camera, which require stretch_body
     # and conflict with an existing robot or simulation bringup.
     stretch_object_detector = Node(
-        package="stretch_deep_perception",
-        executable="detect_objects",
+        package="cs685_fall26_materials",
+        executable="detect_objects_trusted.py",
         output="screen",
+        remappings=[
+            (
+                "/camera/aligned_depth_to_color/image_raw",
+                "/camera/depth/image_rect_raw",
+            ),
+        ],
     )
 
     return LaunchDescription(

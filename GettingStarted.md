@@ -6,13 +6,13 @@ These instructions assume that you have the latest Mac OS.
 
 The following instructions must be completed first: [https://robostack.github.io/GettingStarted.html](https://robostack.github.io/GettingStarted.html).
 
-Steps 1-4 need should be performed before opening this project in VSCode.
+Steps 1-4 should be performed before opening this project in VSCode.
 
 1. Download Stretch packages:
 
 ```
 cd ~
-mkdir -p ament_ws & cd ament_ws/src
+mkdir -p ament_ws/src && cd ament_ws/src
 git clone -b humble git@github.com:hello-robot/stretch_ros2.git
 ```
 
@@ -25,16 +25,26 @@ micromamba install -c conda-forge -c robostack-staging colcon-common-extensions 
 micromamba install -n stretch_humble robostack-staging::ros-humble-xacro
 micromamba install -n stretch_humble -c robostack-staging -c conda-forge ros-humble-joint-state-publisher
 micromamba install -n stretch_humble -c robostack-staging -c conda-forge ros-humble-control-msgs
-python -m pip install --upgrade "setuptools==69.5.1" wheel
-mv src/stretch_ros2/stretch_deep_perception/pyproject.toml src/stretch_ros2/stretch_deep_perception/pyproject.toml.disabled
-mv src/stretch_ros2/stretch_funmap/pyproject.toml src/stretch_ros2/stretch_funmap/pyproject.toml.disabled
+micromamba install -n stretch_humble -c conda-forge pandas ipython
+python -m pip install --upgrade "setuptools==79.0.1" wheel
+python -m pip install "torch==2.13.0" "torchvision==0.28.0" requests seaborn GitPython thop
+mv ~/ament_ws/src/stretch_ros2/stretch_deep_perception/pyproject.toml ~/ament_ws/src/stretch_ros2/stretch_deep_perception/pyproject.toml.disabled
+mv ~/ament_ws/src/stretch_ros2/stretch_funmap/pyproject.toml ~/ament_ws/src/stretch_ros2/stretch_funmap/pyproject.toml.disabled
 ln -s "$CONDA_PREFIX/bin/mjpython" "$CONDA_PREFIX/bin/mjpython.10"
 ```
+
+The PyTorch and TorchVision versions above are a matched pair. The
+`setuptools` version is also intentional: PyTorch requires version 77 or newer,
+while `colcon-core` requires a version older than 80.
+
+Do not install the complete YOLOv5 `requirements.txt` file. It includes a pip
+build of OpenCV that conflicts with the conda OpenCV and OpenMP libraries used
+by this environment.
 
 3. Build
 
 ```
-cd ~ament_ws
+cd ~/ament_ws
 colcon build --symlink-install
 ```
 
@@ -42,7 +52,7 @@ colcon build --symlink-install
 
 ```
 cd ~
-mkdir bin & cd bin
+mkdir -p bin && cd bin
 git clone git@github.com:hello-robot/stretch_mujoco.git
 cd stretch_mujoco
 git submodule update --init --recursive
@@ -54,4 +64,80 @@ python third_party/robocasa/robocasa/scripts/setup_macros.py
 python third_party/robocasa/robocasa/scripts/download_kitchen_assets.py
 ```
 
-5. Open this project in VSCode. Doing so will load up the required terminals and the correct environments.
+5. Open this project in VSCode. Doing so will load the required terminals and
+   the correct environments.
+
+## Object Recognition
+
+The course bringup launch starts Stretch's YOLOv5 object detector alongside
+online SLAM. It does not start the MuJoCo simulator itself. Build the course
+package and source the workspace:
+
+```
+cd ~/ament_ws
+colcon build --symlink-install --packages-select cs685_fall26_materials
+source install/local_setup.zsh
+```
+
+In the VSCode `mujoco` terminal, start the simulator with camera publishing
+enabled:
+
+```
+ros2 launch stretch_simulation stretch_mujoco_driver.launch.py use_mujoco_viewer:=true mode:=navigation use_cameras:=true use_rviz:=false
+```
+
+On macOS, initializing MuJoCo's five camera renderers takes approximately 40
+seconds. Wait until the terminal prints `stretch_mujoco_driver started` before
+checking the camera topics. More complex scenes may take longer.
+
+Then, in the VSCode `robot` terminal, start SLAM and object detection:
+
+```
+ros2 launch cs685_fall26_materials robot_bringup.launch.py
+```
+
+On its first run, the detector downloads the pinned YOLOv5 v7.0 source and the
+pretrained `yolov5s.pt` weights into `~/.cache/torch/hub`. An internet
+connection is required for this first run. Later runs use the cached files.
+
+The detector uses the following RGB-D camera topics. The bringup launch remaps
+the real Stretch aligned-depth topic expected by `stretch_deep_perception` to
+MuJoCo's `/camera/depth/image_rect_raw` topic:
+
+```
+/camera/color/image_raw
+/camera/depth/image_rect_raw
+/camera/color/camera_info
+```
+
+Annotated images and 3D detection markers are published on topics under
+`/objects`, including:
+
+```
+/objects/color/image_with_bb
+/objects/marker_array
+```
+
+MuJoCo publishes camera images with best-effort sensor-data QoS. To inspect a
+frame with the ROS CLI, request matching reliability:
+
+```
+ros2 topic echo /camera/color/image_raw --once --qos-reliability best_effort
+```
+
+The course detector wrapper likewise configures its synchronized RGB, depth,
+and camera-info subscriptions with sensor-data QoS so they are compatible with
+MuJoCo's publishers.
+
+Start RViz with Stretch's object-detection configuration:
+
+```
+rviz2 -d ~/ament_ws/install/stretch_deep_perception/share/stretch_deep_perception/rviz/object_detection.rviz
+```
+
+This profile already includes an **Image** display for
+`/objects/color/image_with_bb` and a **MarkerArray** display for
+`/objects/marker_array`. The larger `stretch_sim.rviz` profile aborts with a
+mutex error on the macOS OpenGL 2.1 implementation and should not be used on
+this setup. If adding a display for a raw MuJoCo camera or laser topic manually,
+set its **Reliability Policy** to **Best Effort**.

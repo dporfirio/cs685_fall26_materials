@@ -26,7 +26,7 @@
     {
       "label": "mujoco",
       "type": "shell",
-      "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && env_name=${CONDA_DEFAULT_ENV:-${CONDA_PREFIX:t}} && export PROMPT=\"($env_name) %~ %% \" && print -P 'This terminal is for %F{yellow}`ros2 launch stretch_simulation stretch_mujoco_driver.launch.py use_mujoco_viewer:=true mode:=navigation`%f' && exec zsh -f",
+      "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && env_name=${CONDA_DEFAULT_ENV:-${CONDA_PREFIX:t}} && export PROMPT=\"($env_name) %~ %% \" && print -P 'This terminal is for %F{yellow}`ros2 launch stretch_simulation stretch_mujoco_driver.launch.py use_mujoco_viewer:=true mode:=navigation use_cameras:=true use_rviz:=false`%f' && exec zsh -f",
       "options": {
         "cwd": "${workspaceFolder}",
         "shell": {
@@ -89,7 +89,7 @@
     {
       "label": "rviz2",
       "type": "shell",
-      "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && env_name=${CONDA_DEFAULT_ENV:-${CONDA_PREFIX:t}} && export PROMPT=\"($env_name) %~ %% \" && print -P 'This terminal is for %F{yellow}`rviz2`%f' && exec zsh -f",
+      "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && env_name=${CONDA_DEFAULT_ENV:-${CONDA_PREFIX:t}} && export PROMPT=\"($env_name) %~ %% \" && print -P 'This terminal is for %F{yellow}`rviz2 -d ~/ament_ws/install/stretch_deep_perception/share/stretch_deep_perception/rviz/object_detection.rviz`%f' && exec zsh -f",
       "options": {
         "cwd": "${workspaceFolder}",
         "shell": {
