@@ -26,6 +26,7 @@ micromamba install -c conda-forge -c robostack-staging colcon-common-extensions 
 micromamba install -n stretch_humble robostack-staging::ros-humble-xacro
 micromamba install -n stretch_humble -c robostack-staging -c conda-forge ros-humble-joint-state-publisher
 micromamba install -n stretch_humble -c robostack-staging -c conda-forge ros-humble-control-msgs
+micromamba install -n stretch_humble -c robostack-staging -c conda-forge ros-humble-navigation2=1.1.5 ros-humble-nav2-bringup=1.1.6
 micromamba install -n stretch_humble -c conda-forge pandas ipython
 python -m pip install --upgrade "setuptools==79.0.1" wheel
 python -m pip install "torch==2.13.0" "torchvision==0.28.0" requests seaborn GitPython thop

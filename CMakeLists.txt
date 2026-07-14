@@ -19,7 +19,9 @@ install(
 )
 
 install(
-  PROGRAMS scripts/detect_objects_trusted.py
+  PROGRAMS
+    scripts/autonomous_explorer.py
+    scripts/detect_objects_trusted.py
   DESTINATION "lib/${PROJECT_NAME}"
 )
 

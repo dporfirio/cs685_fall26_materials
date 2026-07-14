@@ -1,0 +1,24 @@
+autonomous_explorer:
+  ros__parameters:
+    map_topic: /map
+    map_frame: map
+    odom_frame: odom
+    robot_frame: base_link
+    planning_period: 2.0
+    free_threshold: 20
+    occupied_threshold: 65
+    minimum_frontier_cells: 8
+    information_radius: 1.5
+    minimum_information_gain: 0.75
+    probe_unknown_space: true
+    minimum_probe_information_gain: 0.20
+    probe_spacing: 0.25
+    minimum_progress_area: 0.35
+    distance_penalty: 0.20
+    obstacle_clearance: 0.25
+    unknown_clearance: 0.10
+    goal_search_radius: 0.75
+    blacklist_radius: 0.50
+    low_gain_confirmation_cycles: 3
+    no_progress_goal_limit: 4
+    goal_timeout: 120.0

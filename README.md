@@ -73,3 +73,67 @@ rviz2 -d ~/ament_ws/install/stretch_deep_perception/share/stretch_deep_perceptio
 
 For the complete object-recognition setup, topic remapping, and dependency
 instructions, see [GettingStarted.md](GettingStarted.md#object-recognition).
+
+## Autonomous Exploration
+
+`robot_bringup.launch.py` starts Stretch's asynchronous SLAM mapper (using the
+MuJoCo laser topic `/scan_filtered`), Nav2, and an autonomous frontier explorer
+in an idle state. The explorer uses the live SLAM occupancy grid and Nav2's `navigate_to_pose` action
+to seek reachable free cells bordering unknown space. Candidate frontiers are
+ranked by estimated unknown area within sensor range, with a penalty for travel
+distance. Failed goals are blacklisted so the robot does not repeatedly try the
+same unreachable location.
+
+Start exploration with:
+
+```bash
+ros2 service call /exploration/start std_srvs/srv/Trigger "{}"
+```
+
+Stop it manually with:
+
+```bash
+ros2 service call /exploration/stop std_srvs/srv/Trigger "{}"
+```
+
+Query its state with:
+
+```bash
+ros2 service call /exploration/status std_srvs/srv/Trigger "{}"
+ros2 topic echo /exploration/status_text --qos-durability transient_local
+```
+
+Exploration completes after several consecutive planning cycles find no
+frontier above the configured information-gain threshold. It also stops when
+several consecutive navigation goals reveal less than the configured minimum
+new map area. These criteria measure expected and observed information gain;
+they do not assume that explored space is enclosed by walls.
+
+The thresholds are configured in
+[`config/autonomous_explorer.yaml`](config/autonomous_explorer.yaml). Useful
+parameters include:
+
+- `minimum_information_gain`: minimum estimated unknown area, in square meters,
+  required to pursue a frontier.
+- `probe_unknown_space`: after normal frontiers are exhausted, search safe floor
+  positions for viewpoints into smaller or isolated blank regions.
+- `minimum_probe_information_gain`: lower information threshold used for those
+  blank-space viewpoints.
+- `minimum_progress_area`: minimum newly observed area expected from a completed
+  goal.
+- `low_gain_confirmation_cycles`: number of low-gain planning cycles required
+  before declaring exploration complete.
+- `no_progress_goal_limit`: number of consecutive successfully reached goals
+  that reveal too little new map area before stopping. Navigation rejections and
+  aborted paths do not count toward this limit; they blacklist that candidate
+  and trigger replanning.
+- `goal_timeout`: maximum navigation time for one frontier goal.
+- `obstacle_clearance` / `unknown_clearance`: required free-space margins around
+  a navigation goal.
+- `goal_search_radius`: how far inward from a frontier the explorer may search
+  for a connected, safely reachable staging point.
+
+While navigating, the explorer checks the active goal against each updated SLAM
+map. If newly observed obstacles or unknown space make it unsafe or disconnect
+it from the robot's reachable free-space region, the goal is canceled,
+blacklisted, and replaced with a newly planned frontier goal.

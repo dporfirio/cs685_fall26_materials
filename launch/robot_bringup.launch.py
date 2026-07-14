@@ -7,7 +7,10 @@ from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    stretch_nav2_launch = IncludeLaunchDescription(
+    # Use Stretch's mapper explicitly. Nav2's generic SLAM launch defaults to
+    # the `scan` topic, whereas Stretch/MuJoCo publishes the filtered laser on
+    # `/scan_filtered`.
+    stretch_slam_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution(
                 [
@@ -17,9 +20,41 @@ def generate_launch_description():
                 ]
             )
         ),
+        launch_arguments={"use_sim_time": "true"}.items(),
+    )
+
+    # Start Nav2 without its localization/SLAM wrapper. The async mapper above
+    # owns map -> odom and publishes the live occupancy grid used by Nav2 and
+    # the autonomous explorer.
+    stretch_navigation_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            PathJoinSubstitution(
+                [FindPackageShare("stretch_nav2"), "launch", "navigation_launch.py"]
+            )
+        ),
         launch_arguments={
             "use_sim_time": "true",
+            "autostart": "true",
+            "params_file": PathJoinSubstitution(
+                [FindPackageShare("stretch_nav2"), "config", "nav2_params.yaml"]
+            ),
         }.items(),
+    )
+
+    autonomous_explorer = Node(
+        package="cs685_fall26_materials",
+        executable="autonomous_explorer.py",
+        output="screen",
+        parameters=[
+            PathJoinSubstitution(
+                [
+                    FindPackageShare("cs685_fall26_materials"),
+                    "config",
+                    "autonomous_explorer.yaml",
+                ]
+            ),
+            {"use_sim_time": True},
+        ],
     )
 
     # Start only the detector here. The package's demo launch file also starts
@@ -39,7 +74,9 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
-            stretch_nav2_launch,
+            stretch_slam_launch,
+            stretch_navigation_launch,
+            autonomous_explorer,
             stretch_object_detector,
         ]
     )
