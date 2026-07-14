@@ -8,7 +8,7 @@ The following instructions must be completed first: [https://robostack.github.io
 
 Steps 1-4 should be performed before opening this project in VSCode.
 
-1. Download Stretch packages:
+1. Download Stretch packages. Note that this is recommended to be done in your home directory, but is not required:
 
 ```
 cd ~
@@ -19,6 +19,7 @@ git clone -b humble git@github.com:hello-robot/stretch_ros2.git
 2. Set up a micromamba environment
 
 ```
+brew install micromamba
 micromamba create -n stretch_humble -c conda-forge -c robostack-staging python=3.10 ros-humble-desktop compilers cmake pkg-config make ninja colcon-common-extensions
 micromamba activate stretch_humble
 micromamba install -c conda-forge -c robostack-staging colcon-common-extensions colcon-core colcon-ros colcon-python-setup-py ros-dev-tools ros-humble-slam-toolbox
@@ -48,7 +49,7 @@ cd ~/ament_ws
 colcon build --symlink-install
 ```
 
-4. Install Stretch Mujoco
+4. Install Stretch Mujoco. Note that this does not have to be done in a bin directory, but rather, it can be done anywhere:
 
 ```
 cd ~
