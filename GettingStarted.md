@@ -143,3 +143,34 @@ This profile already includes an **Image** display for
 mutex error on the macOS OpenGL 2.1 implementation and should not be used on
 this setup. If adding a display for a raw MuJoCo camera or laser topic manually,
 set its **Reliability Policy** to **Best Effort**.
+
+## Troubleshooting
+
+### RViz: `base_link` does not exist
+
+Make ROS 2 discovery settings consistent in every terminal running MuJoCo, RViz, or ROS commands:
+
+```zsh
+export ROS_DOMAIN_ID=0
+export ROS_LOCALHOST_ONLY=1
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+unset CYCLONEDDS_URI
+```
+
+For ROS CLI terminals, restart the daemon:
+
+```zsh
+ros2 daemon stop
+ros2 daemon start
+```
+
+Then verify that the simulator and TF are discoverable:
+
+```zsh
+ros2 topic echo /clock --once
+ros2 run tf2_ros tf2_echo odom base_link
+```
+
+If TF is still unavailable, ensure the MuJoCo simulator is running with the same settings.
+
+
