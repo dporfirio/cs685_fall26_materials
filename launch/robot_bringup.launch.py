@@ -2,11 +2,28 @@ from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import PathJoinSubstitution
+from nav2_common.launch import RewrittenYaml
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
+    # Item travel separates positional navigation from pointing. Let a normal
+    # NavigateToPose goal finish at the requested x/y regardless of heading;
+    # the traveler owns the subsequent TF-controlled turn through guarded
+    # cmd_vel commands.
+    navigation_params = RewrittenYaml(
+        source_file=PathJoinSubstitution(
+            [FindPackageShare("stretch_nav2"), "config", "nav2_params.yaml"]
+        ),
+        root_key="",
+        param_rewrites={
+            "xy_goal_tolerance": "0.10",
+            "yaw_goal_tolerance": "3.141592653589793",
+        },
+        convert_types=True,
+    )
+
     # Use Stretch's mapper explicitly. Nav2's generic SLAM launch defaults to
     # the `scan` topic, whereas Stretch/MuJoCo publishes the filtered laser on
     # `/scan_filtered`.
@@ -35,9 +52,7 @@ def generate_launch_description():
         launch_arguments={
             "use_sim_time": "true",
             "autostart": "true",
-            "params_file": PathJoinSubstitution(
-                [FindPackageShare("stretch_nav2"), "config", "nav2_params.yaml"]
-            ),
+            "params_file": navigation_params,
         }.items(),
     )
 
@@ -55,6 +70,13 @@ def generate_launch_description():
             ),
             {"use_sim_time": True},
         ],
+    )
+
+    kitchen_item_traveler = Node(
+        package="cs685_fall26_materials",
+        executable="kitchen_item_traveler.py",
+        output="screen",
+        parameters=[{"use_sim_time": True}],
     )
 
     # Start only the detector here. The package's demo launch file also starts
@@ -77,6 +99,7 @@ def generate_launch_description():
             stretch_slam_launch,
             stretch_navigation_launch,
             autonomous_explorer,
+            kitchen_item_traveler,
             stretch_object_detector,
         ]
     )

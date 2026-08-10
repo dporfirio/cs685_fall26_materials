@@ -45,6 +45,27 @@
       "problemMatcher": []
     },
     {
+      "label": "mujoco top-down recording",
+      "type": "shell",
+      "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && print -P 'Run %F{yellow}`ros2 launch cs685_fall26_materials topdown_recording_sim.launch.py`%f to start a headless simulation with real-time top-down video recording.' && exec zsh -f",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "/bin/zsh",
+          "args": ["-c"]
+        }
+      },
+      "presentation": {
+        "panel": "new",
+        "reveal": "always",
+        "focus": false,
+        "echo": true,
+        "showReuseMessage": false,
+        "close": false
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "robot",
       "type": "shell",
       "command": "eval \"$(micromamba shell hook --shell zsh)\" && micromamba activate stretch_humble && cd ~/ament_ws && source ~/ament_ws/install/local_setup.zsh && cd \"${workspaceFolder}\" && env_name=${CONDA_DEFAULT_ENV:-${CONDA_PREFIX:t}} && export PROMPT=\"($env_name) %~ %% \" && print -P 'This terminal is for %F{yellow}`ros2 launch cs685_fall26_materials robot_bringup.launch.py`%f' && exec zsh -f",

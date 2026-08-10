@@ -3,7 +3,16 @@
 """Run Stretch object detection without Torch Hub's interactive trust prompt."""
 
 import os
+import warnings
 from pathlib import Path
+
+# YOLOv5 v7.0 still calls PyTorch's legacy autocast spelling once per
+# inference. Suppress only that upstream deprecation; retain all other warnings.
+warnings.filterwarnings(
+    "ignore",
+    message=r"`torch\.cuda\.amp\.autocast\(args\.\.\.\)` is deprecated\..*",
+    category=FutureWarning,
+)
 
 # The conda OpenCV build and pip PyTorch wheel each provide an OpenMP runtime on
 # macOS. Importing OpenCV first ensures its environment-level runtime is loaded
