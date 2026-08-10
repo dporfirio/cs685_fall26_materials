@@ -1,0 +1,9 @@
+string[] joint_names
+float64[] positions
+# A nonpositive value asks robot_kinematics to use its default duration.
+float64 duration_seconds
+---
+bool success
+string message
+---
+string status
