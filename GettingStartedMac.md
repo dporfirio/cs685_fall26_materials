@@ -7,6 +7,7 @@ These instructions assume that you have MacOS.
 Before cloning this repository, complete these RoboStack instructions: [https://robostack.github.io/GettingStarted.html](https://robostack.github.io/GettingStarted.html).
 
 🛑 STOP! Have you installed ROS2 in `~/ament_ws` yet? If not, go back and carefully complete the  RoboStack instructions. 🛑
+
 🛑 One more thing! Before moving on, ask yourself if you need to do the ROS2 tutorials. You can find them [here](https://docs.ros.org/en/humble/Tutorials.html). Doing the Python tutorials up through the "Advanced" category is recommended. 🛑
 
 If you've done both of the above steps, then you're ready to move on...
