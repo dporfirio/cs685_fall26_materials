@@ -72,13 +72,6 @@ def generate_launch_description():
         ],
     )
 
-    kitchen_item_traveler = Node(
-        package="cs685_fall26_materials",
-        executable="kitchen_item_traveler.py",
-        output="screen",
-        parameters=[{"use_sim_time": True}],
-    )
-
     # Start only the detector here. The package's demo launch file also starts
     # the physical robot driver and RealSense camera, which require stretch_body
     # and conflict with an existing robot or simulation bringup.
@@ -99,7 +92,6 @@ def generate_launch_description():
             stretch_slam_launch,
             stretch_navigation_launch,
             autonomous_explorer,
-            kitchen_item_traveler,
             stretch_object_detector,
         ]
     )
