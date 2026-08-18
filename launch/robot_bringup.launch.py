@@ -1,5 +1,6 @@
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.substitutions import LaunchConfiguration
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import PathJoinSubstitution
 from nav2_common.launch import RewrittenYaml
@@ -8,6 +9,8 @@ from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
+    detector_output = LaunchConfiguration("detector_output")
+
     # Item travel separates positional navigation from pointing. Let a normal
     # NavigateToPose goal finish at the requested x/y regardless of heading;
     # the traveler owns the subsequent TF-controlled turn through guarded
@@ -78,7 +81,7 @@ def generate_launch_description():
     stretch_object_detector = Node(
         package="cs685_fall26_materials",
         executable="detect_objects_trusted.py",
-        output="screen",
+        output=detector_output,
         remappings=[
             (
                 "/camera/aligned_depth_to_color/image_raw",
@@ -89,6 +92,7 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
+            DeclareLaunchArgument("detector_output", default_value="screen"),
             stretch_slam_launch,
             stretch_navigation_launch,
             autonomous_explorer,

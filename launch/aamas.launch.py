@@ -48,7 +48,8 @@ def generate_launch_description():
     robot_bringup = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution([package_share, "launch", "robot_bringup.launch.py"])
-        )
+        ),
+        launch_arguments={"detector_output": "log"}.items(),
     )
 
     kitchen_item_traveler = Node(
