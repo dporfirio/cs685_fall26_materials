@@ -1,5 +1,6 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.conditions import IfCondition
 from launch.substitutions import LaunchConfiguration
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import PathJoinSubstitution
@@ -10,6 +11,7 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     detector_output = LaunchConfiguration("detector_output")
+    enable_object_detection = LaunchConfiguration("enable_object_detection")
 
     # Item travel separates positional navigation from pointing. Let a normal
     # NavigateToPose goal finish at the requested x/y regardless of heading;
@@ -82,6 +84,7 @@ def generate_launch_description():
         package="cs685_fall26_materials",
         executable="detect_objects_trusted.py",
         output=detector_output,
+        condition=IfCondition(enable_object_detection),
         remappings=[
             (
                 "/camera/aligned_depth_to_color/image_raw",
@@ -93,6 +96,9 @@ def generate_launch_description():
     return LaunchDescription(
         [
             DeclareLaunchArgument("detector_output", default_value="screen"),
+            DeclareLaunchArgument(
+                "enable_object_detection", default_value="true"
+            ),
             stretch_slam_launch,
             stretch_navigation_launch,
             autonomous_explorer,

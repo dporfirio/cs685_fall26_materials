@@ -17,6 +17,8 @@ def generate_launch_description():
         "filename": LaunchConfiguration("filename"),
         "video_fps": LaunchConfiguration("video_fps"),
         "camera_margin": LaunchConfiguration("camera_margin"),
+        "use_cameras": LaunchConfiguration("use_cameras"),
+        "use_mujoco_viewer": LaunchConfiguration("use_mujoco_viewer"),
         "robocasa_task": LaunchConfiguration("robocasa_task"),
         "robocasa_layout": LaunchConfiguration("robocasa_layout"),
         "robocasa_style": LaunchConfiguration("robocasa_style"),
@@ -31,9 +33,12 @@ def generate_launch_description():
         DeclareLaunchArgument("filename", default_value=""),
         DeclareLaunchArgument("video_fps", default_value="10.0"),
         DeclareLaunchArgument("camera_margin", default_value="1.0"),
+        DeclareLaunchArgument("use_cameras", default_value="true"),
+        DeclareLaunchArgument("use_mujoco_viewer", default_value="false"),
         DeclareLaunchArgument("robocasa_task", default_value="PnPCounterToCab"),
         DeclareLaunchArgument("robocasa_layout", default_value="9"),
         DeclareLaunchArgument("robocasa_style", default_value="11"),
+        DeclareLaunchArgument("enable_object_detection", default_value="false"),
     ]
 
     topdown_simulation = IncludeLaunchDescription(
@@ -49,7 +54,12 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             PathJoinSubstitution([package_share, "launch", "robot_bringup.launch.py"])
         ),
-        launch_arguments={"detector_output": "log"}.items(),
+        launch_arguments={
+            "detector_output": "log",
+            "enable_object_detection": LaunchConfiguration(
+                "enable_object_detection"
+            ),
+        }.items(),
     )
 
     kitchen_item_traveler = Node(

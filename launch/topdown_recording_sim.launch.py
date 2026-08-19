@@ -26,6 +26,8 @@ def generate_launch_description():
     filename = LaunchConfiguration("filename")
     video_fps = LaunchConfiguration("video_fps")
     camera_margin = LaunchConfiguration("camera_margin")
+    use_cameras = LaunchConfiguration("use_cameras")
+    use_mujoco_viewer = LaunchConfiguration("use_mujoco_viewer")
 
     arguments = [
         DeclareLaunchArgument("record_video", default_value="true"),
@@ -35,6 +37,8 @@ def generate_launch_description():
         DeclareLaunchArgument("filename", default_value=""),
         DeclareLaunchArgument("video_fps", default_value="10.0"),
         DeclareLaunchArgument("camera_margin", default_value="1.0"),
+        DeclareLaunchArgument("use_cameras", default_value="true"),
+        DeclareLaunchArgument("use_mujoco_viewer", default_value="false"),
         DeclareLaunchArgument("robocasa_task", default_value="PnPCounterToCab"),
         DeclareLaunchArgument("robocasa_layout", default_value="9"),
         DeclareLaunchArgument("robocasa_style", default_value="11"),
@@ -76,8 +80,10 @@ def generate_launch_description():
                 "broadcast_odom_tf": True,
                 "fail_out_of_range_goal": False,
                 "mode": "navigation",
-                "use_mujoco_viewer": False,
-                "use_cameras": True,
+                "use_mujoco_viewer": ParameterValue(
+                    use_mujoco_viewer, value_type=bool
+                ),
+                "use_cameras": ParameterValue(use_cameras, value_type=bool),
                 "use_robocasa": True,
                 "robocasa_task": LaunchConfiguration("robocasa_task"),
                 "robocasa_layout": LaunchConfiguration("robocasa_layout"),
