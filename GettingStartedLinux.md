@@ -19,6 +19,7 @@ If you've done both of the above steps, then you're ready to move on...
 1. Download Stretch packages. It is best practice to have placed `~/ament_ws` in your home directory, so these instructions assume that directory is your ROS2 location:
 
 ```
+mkdir -p ~/ament_ws/src
 cd ~/ament_ws/src
 git clone -b humble git@github.com:hello-robot/stretch_ros2.git
 git clone git@github.com:dporfirio/cs685_fall26_materials.git
