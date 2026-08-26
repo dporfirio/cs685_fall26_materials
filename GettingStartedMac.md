@@ -77,7 +77,22 @@ python third_party/robocasa/robocasa/scripts/setup_macros.py
 python third_party/robocasa/robocasa/scripts/download_kitchen_assets.py
 ```
 
-5. Open this project in VSCode. Doing so will load the required terminals and
+5. Install the Stretch URDF package
+
+```
+python -m pip install --upgrade hello-robot-stretch-urdf
+git clone --depth 1 https://github.com/hello-robot/stretch_urdf.git /tmp/stretch_urdf
+
+python /tmp/stretch_urdf/tools/stretch_urdf_ros_update.py \
+  --model SE3 \
+  --tool eoa_wrist_dw3_tool_sg3 \
+  -y
+
+cd ~/ament_ws
+colcon build --symlink-install --packages-select stretch_description
+```
+
+6. Recommended: open this project in VSCode. Doing so will load the required terminals and
    the correct environments.
 
 ### MacOS intricies with object recognition (you can stop here if you're not dealing with vision yet)
