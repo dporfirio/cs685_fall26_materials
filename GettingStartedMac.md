@@ -1,8 +1,17 @@
 # Installing Stretch on your Own Computer
 
-## Mac
+These instructions assume that you have MacOS. They should work regardless of whether you have a Silicon or Intel chip.
 
-These instructions assume that you have MacOS.
+The first thing you need to do is decide on whether you want to use a Virtual Machine (e.g., VirtualBox or UTM) or whether you want to install it natively on your mac.
+
+| Option | Pros | Cons |
+| --- | --- | --- |
+| Native installation | Much faster than VirtualBox | Has a much more involved setup procedure |
+| Virtual machine | You can use a clean Ubuntu environment (works best with robotics) | Is slower; Requires some extra configuration depending on which Virtual Machine platform you use; |
+
+Personally, I recommend trying **Option 1: Native Installation**. If you really can't get that to work, move to Option 2.
+
+## Option 1: Native Installation
 
 Before cloning this repository, complete these RoboStack instructions: [https://robostack.github.io/GettingStarted.html](https://robostack.github.io/GettingStarted.html).
 
@@ -71,7 +80,7 @@ python third_party/robocasa/robocasa/scripts/download_kitchen_assets.py
 5. Open this project in VSCode. Doing so will load the required terminals and
    the correct environments.
 
-## MacOS intricies with object recognition (you can stop here if you're not dealing with vision yet)
+### MacOS intricies with object recognition (you can stop here if you're not dealing with vision yet)
 
 The course bringup launch starts Stretch's YOLOv5 object detector alongside
 online SLAM. It does not start the MuJoCo simulator itself. Build the course
@@ -146,9 +155,9 @@ mutex error on the macOS OpenGL 2.1 implementation and should not be used on
 this setup. If adding a display for a raw MuJoCo camera or laser topic manually,
 set its **Reliability Policy** to **Best Effort**.
 
-## Troubleshooting
+### Troubleshooting
 
-### RViz: `base_link` does not exist
+**RViz: `base_link` does not exist**
 
 Make ROS 2 discovery settings consistent in every terminal running MuJoCo, RViz, or ROS commands:
 
@@ -175,4 +184,7 @@ ros2 run tf2_ros tf2_echo odom base_link
 
 If TF is still unavailable, ensure the MuJoCo simulator is running with the same settings.
 
+## Option 2: Virtual Machine
 
+1. Install Ubuntu 22.04 in a Virtual Machine (e.g., VirtualBox or UTM)
+2. Follow the steps here: [GettingStartedLinux.md](GettingStartedLinux.md)
