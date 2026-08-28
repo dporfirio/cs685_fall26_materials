@@ -101,8 +101,10 @@ The stretch_simulation MuJoCo launch file expects the following robot descriptio
 The `hello-robot-stretch-urdf` package installed with stretch_mujoco contains the required uncalibrated SE3 URDF/Xacro files. Copy them as such:
 
 ```
-cp -r \ ~/.local/lib/python3.10/site-packages/stretch_urdf/SE3/xacro/* \ ~/ament_ws/src/stretch_ros2/stretch_description/urdf/ 
-cp \ ~/.local/lib/python3.10/site-packages/stretch_urdf/SE3/*.urdf \ ~/ament_ws/src/stretch_ros2/stretch_description/urdf/
+cp -r ~/.local/lib/python3.10/site-packages/stretch_urdf/SE3/xacro/* \
+  ~/ament_ws/src/stretch_ros2/stretch_description/urdf/
+cp ~/.local/lib/python3.10/site-packages/stretch_urdf/SE3/*.urdf \
+  ~/ament_ws/src/stretch_ros2/stretch_description/urdf/
 ```
 
 5. Test the simulator:
