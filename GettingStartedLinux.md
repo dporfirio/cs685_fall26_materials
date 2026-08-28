@@ -125,3 +125,13 @@ uv pip install \
   --reinstall \
   "setuptools==59.6.0"
 ```
+
+If you receive an error that there is no module named `ros2_numpy`, run the following:
+
+```
+cd ~/ament_ws/src
+git clone -b humble https://github.com/hello-binit/ros2_numpy.git
+cd ~/ament_ws
+colcon build --packages-select ros2_numpy hello_helpers stretch_simulation
+source install/setup.bash
+```
