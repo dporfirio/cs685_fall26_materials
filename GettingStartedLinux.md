@@ -107,8 +107,21 @@ cp ~/.local/lib/python3.10/site-packages/stretch_urdf/SE3/*.urdf \
   ~/ament_ws/src/stretch_ros2/stretch_description/urdf/
 ```
 
-5. Test the simulator:
+5. Rebuild and test the simulator:
 
 ```
+cd ~/ament_ws
+colcon build --symlink-install
+source install/setup.bash
 ros2 launch stretch_simulation stretch_mujoco_driver.launch.py mode:=navigation use_rviz:=false
+```
+
+If colcon fails to build with an `invalid syntax` error, the problem is your setuptools version. You can fix this by running the following command and rebuilding:
+
+```
+uv pip install \
+  --python /usr/bin/python3 \
+  --target ~/.local/lib/python3.10/site-packages \
+  --reinstall \
+  "setuptools==59.6.0"
 ```
