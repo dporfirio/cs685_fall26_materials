@@ -28,6 +28,7 @@ git clone git@github.com:dporfirio/cs685_fall26_materials.git
 2. Download dependencies
 
 ```
+cd ~/ament_ws
 sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
