@@ -201,5 +201,12 @@ If TF is still unavailable, ensure the MuJoCo simulator is running with the same
 
 ## Option 2: Virtual Machine
 
-1. Install Ubuntu 22.04 in a Virtual Machine (e.g., VirtualBox or UTM)
-2. Follow the steps here: [GettingStartedLinux.md](GettingStartedLinux.md)
+1. Install Ubuntu 22.04 in a Virtual Machine (e.g., VirtualBox or UTM).
+
+   I tried UTM with the following settings:
+   - Virtualization (rather than emulation) because it is faster. The only way you can get virtualization working on a Silicon Mac is by using the Ubuntu Server .iso for the ARM architecture. You can find that here: https://cdimage.ubuntu.com/ubuntu/releases/22.04/release/
+   - GUI: Once Ubuntu Server was installed, I installed the Ubuntu MATE Gnome Desktop. 
+   - Disk space: 42GB
+   - Memory: 12GB
+   
+3. Then, follow the steps here: [GettingStartedLinux.md](GettingStartedLinux.md)
