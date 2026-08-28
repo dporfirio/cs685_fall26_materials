@@ -110,5 +110,5 @@ cp ~/.local/lib/python3.10/site-packages/stretch_urdf/SE3/*.urdf \
 5. Test the simulator:
 
 ```
-ros2 launch stretch_simulation stretch_mujoco_driver.launch.py mode:=navigation use_cameras:=true use_rviz:=false
+ros2 launch stretch_simulation stretch_mujoco_driver.launch.py mode:=navigation use_rviz:=false
 ```
