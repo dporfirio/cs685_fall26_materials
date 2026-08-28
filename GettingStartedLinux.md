@@ -10,7 +10,7 @@ Make sure to add `source /opt/ros/humble/setup.bash` to the bottom of your .bash
 
 ```echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc```
 
-🛑 STOP! Have you installed ROS2 in `~/ament_ws` yet? If not, go back and carefully complete the  installation instructions. 🛑
+🛑 STOP! Have you installed ROS2 yet? If not, go back and carefully complete the  installation instructions. 🛑
 
 🛑 One more thing! Before moving on, ask yourself if you need to do the ROS2 tutorials. You can find them [here](https://docs.ros.org/en/humble/Tutorials.html). Doing the Python tutorials up through the "Advanced" category is recommended. 🛑
 
