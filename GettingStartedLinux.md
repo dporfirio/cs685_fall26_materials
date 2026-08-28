@@ -75,6 +75,16 @@ uv pip install \
 /usr/bin/python3 third_party/robocasa/robocasa/scripts/setup_macros.py
 /usr/bin/python3 third_party/robocasa/robocasa/scripts/download_kitchen_assets.py
 ```
+Note that it is possible that installing robosuite will force an upgrade to Mujoco. If you receive an error in any of the above commands that says `AssertionError: MuJoCo version must be 3.2.6. Please run pip install mujoco==3.2.6`, the following command should rectify things:
+
+```
+uv pip install \
+  --python /usr/bin/python3 \
+  --target ~/.local/lib/python3.10/site-packages \
+  --reinstall \
+  "numpy==1.23.3" \
+  "mujoco==3.2.6"
+```
 
 4. Install a few extra things:
 
