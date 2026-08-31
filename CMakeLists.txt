@@ -13,7 +13,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 )
 
 # Install course resources as they are added to the package.
-foreach(resource_dir launch config rviz maps worlds)
+foreach(resource_dir launch config rviz maps worlds casas)
   if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${resource_dir}")
     install(
       DIRECTORY "${resource_dir}"
@@ -40,9 +40,12 @@ ament_python_install_package(
 install(
   PROGRAMS
     scripts/autonomous_explorer.py
+    scripts/controller.py
     scripts/detect_objects_trusted.py
     scripts/kitchen_item_traveler.py
+    scripts/large_house_mujoco_driver.py
     scripts/locomotion_posture_guard.py
+    scripts/minimal_mujoco_driver.py
     scripts/topdown_mujoco_driver.py
     scripts/topdown_video_recorder.py
   DESTINATION "lib/${PROJECT_NAME}"
