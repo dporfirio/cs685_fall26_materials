@@ -10,13 +10,13 @@ Make sure to add `source /opt/ros/humble/setup.bash` to the bottom of your .bash
 
 ```echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc```
 
-🛑 STOP! Have you installed ROS2 in `~/ament_ws` yet? If not, go back and carefully complete the  installation instructions. 🛑
+🛑 STOP! Have you installed ROS2 yet? If not, go back and carefully complete the  installation instructions. 🛑
 
 🛑 One more thing! Before moving on, ask yourself if you need to do the ROS2 tutorials. You can find them [here](https://docs.ros.org/en/humble/Tutorials.html). Doing the Python tutorials up through the "Advanced" category is recommended. 🛑
 
 If you've done both of the above steps, then you're ready to move on...
 
-1. Download Stretch packages. It is best practice to have placed `~/ament_ws` in your home directory, so these instructions assume that directory is your ROS2 location:
+1. **Download Stretch packages.** It is best practice to have placed `~/ament_ws` in your home directory, so these instructions assume that directory is your ROS2 location:
 
 ```
 mkdir -p ~/ament_ws/src
@@ -25,15 +25,16 @@ git clone -b humble git@github.com:hello-robot/stretch_ros2.git
 git clone git@github.com:dporfirio/cs685_fall26_materials.git
 ```
 
-2. Download dependencies
+2. **Download dependencies**
 
 ```
+cd ~/ament_ws
 sudo rosdep init
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
-2. Check that it builds
+2. **Check that it builds**
 
 ```
 cd ~/ament_ws
@@ -41,7 +42,7 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 
-3. Install Stretch Mujoco. Note that the newer versions of stretch_mujoco are installable with uv, but we need to guide the installation to use the system's version of python that ROS2 uses:
+3. **Install Stretch Mujoco.** Note that the newer versions of stretch_mujoco are installable with uv, but we need to guide the installation to use the system's version of python that ROS2 uses:
 
 ```
 cd ~
@@ -75,7 +76,19 @@ uv pip install \
 /usr/bin/python3 third_party/robocasa/robocasa/scripts/download_kitchen_assets.py
 ```
 
-4. Install a few extra things:
+⚠️Troubleshooting⚠️
+Note that it is possible that installing robosuite will force an upgrade to Mujoco. If you receive an error in any of the above commands that says `AssertionError: MuJoCo version must be 3.2.6. Please run pip install mujoco==3.2.6`, the following command should rectify things:
+
+```
+uv pip install \
+  --python /usr/bin/python3 \
+  --target ~/.local/lib/python3.10/site-packages \
+  --reinstall \
+  "numpy==1.23.3" \
+  "mujoco==3.2.6"
+```
+
+4. **Install a few extra things:**
 
 ```
 sudo apt update
@@ -83,19 +96,45 @@ sudo apt install ros-humble-xacro portaudio19-dev ros-humble-joint-state-publish
 /usr/bin/python3 -m pip install --user pyquaternion
 ```
 
-4. Get Stretch's URDF.
+4. **Get Stretch's URDF.**
 
 The stretch_simulation MuJoCo launch file expects the following robot description: `stretch_description_SE3_eoa_wrist_dw3_tool_sg3.xacro`. However, the `stretch_ros2/stretch_description/urdf` directory does not contain these generated SE3 files by default.
 
 The `hello-robot-stretch-urdf` package installed with stretch_mujoco contains the required uncalibrated SE3 URDF/Xacro files. Copy them as such:
 
 ```
-cp -r \ ~/.local/lib/python3.10/site-packages/stretch_urdf/SE3/xacro/* \ ~/ament_ws/src/stretch_ros2/stretch_description/urdf/ 
-cp \ ~/.local/lib/python3.10/site-packages/stretch_urdf/SE3/*.urdf \ ~/ament_ws/src/stretch_ros2/stretch_description/urdf/
+cp -r ~/.local/lib/python3.10/site-packages/stretch_urdf/SE3/xacro/* \
+  ~/ament_ws/src/stretch_ros2/stretch_description/urdf/
+cp ~/.local/lib/python3.10/site-packages/stretch_urdf/SE3/*.urdf \
+  ~/ament_ws/src/stretch_ros2/stretch_description/urdf/
 ```
 
-5. Test the simulator:
+5. **Rebuild and test the simulator:**
 
 ```
-ros2 launch stretch_simulation stretch_mujoco_driver.launch.py mode:=navigation use_cameras:=true use_rviz:=false
+cd ~/ament_ws
+colcon build --symlink-install
+source install/setup.bash
+ros2 launch stretch_simulation stretch_mujoco_driver.launch.py mode:=navigation use_rviz:=false
+```
+
+⚠️Troubleshooting⚠️
+If colcon fails to build with an `invalid syntax` error, the problem is your setuptools version. You can fix this by running the following command and rebuilding:
+
+```
+uv pip install \
+  --python /usr/bin/python3 \
+  --target ~/.local/lib/python3.10/site-packages \
+  --reinstall \
+  "setuptools==59.6.0"
+```
+
+If you receive an error that there is no module named `ros2_numpy`, run the following:
+
+```
+cd ~/ament_ws/src
+git clone -b humble https://github.com/hello-binit/ros2_numpy.git
+cd ~/ament_ws
+colcon build --packages-select ros2_numpy hello_helpers stretch_simulation
+source install/setup.bash
 ```
