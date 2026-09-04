@@ -2,9 +2,9 @@ import sys
 
 import launch_ros.actions
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, PythonExpression
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from stretch_mujoco.robocasa_gen import get_styles, layouts
@@ -36,6 +36,13 @@ class _RoboCasaPythonLaunchDescriptionSource(PythonLaunchDescriptionSource):
 
 
 def generate_launch_description():
+    minimal = DeclareLaunchArgument(
+        "minimal",
+        default_value="false",
+        choices=["true", "false"],
+        description="Use the minimal scene instead of the RoboCasa kitchen environment",
+    )
+
     stretch_mujoco = IncludeLaunchDescription(
         _RoboCasaPythonLaunchDescriptionSource(
             PathJoinSubstitution(
@@ -49,7 +56,9 @@ def generate_launch_description():
         launch_arguments={
             "mode": "position",
             "use_rviz": "false",
-            "use_robocasa": "true",
+            "use_robocasa": PythonExpression(
+                ["'false' if '", LaunchConfiguration("minimal"), "' == 'true' else 'true'"]
+            ),
             "robocasa_layout": layouts[0],
             "robocasa_style": get_styles()[0],
         }.items(),
@@ -66,4 +75,6 @@ def generate_launch_description():
         output="screen",
     )
 
-    return LaunchDescription([stretch_mujoco, robot_kinematics, controller])
+    return LaunchDescription(
+        [minimal, stretch_mujoco, robot_kinematics, controller]
+    )
