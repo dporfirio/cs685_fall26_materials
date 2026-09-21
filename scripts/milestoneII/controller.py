@@ -5,7 +5,10 @@ from action_msgs.msg import GoalStatus
 from geometry_msgs.msg import PointStamped
 from rclpy.action import ActionClient
 from rclpy.node import Node
+from rclpy.time import Time
+from sensor_msgs.msg import JointState
 from std_srvs.srv import Trigger
+from tf2_ros import Buffer, TransformException, TransformListener
 
 from cs685_fall26_materials.action import ExecuteCartesianPoint, ExecuteJointPose
 
@@ -13,8 +16,12 @@ from cs685_fall26_materials.action import ExecuteCartesianPoint, ExecuteJointPos
 ACTION_NAME = "/milestoneII/execute_joint_pose"
 IK_ACTION_NAME = "/milestoneII/execute_cartesian_point"
 IK_TARGET_TOPIC = "/milestoneII/ik_target"
+JOINT_STATE_TOPIC = "/stretch/joint_states"
+IK_TARGET_FRAME = "map"
+END_EFFECTOR_FRAME = "link_grasp_center"
 FORWARD_KINEMATICS_DURATION_SECONDS = 3.0
 INVERSE_KINEMATICS_DURATION_SECONDS = 6.0
+SETTLING_DURATION_SECONDS = 0.5
 
 
 class MilestoneIIController(Node):
@@ -22,6 +29,15 @@ class MilestoneIIController(Node):
 
     def __init__(self):
         super().__init__("milestoneII_controller")
+        self._tf_buffer = Buffer()
+        self._tf_listener = TransformListener(self._tf_buffer, self)
+        self._joint_positions = {}
+        self._joint_state_subscription = self.create_subscription(
+            JointState,
+            JOINT_STATE_TOPIC,
+            self._joint_state_callback,
+            10,
+        )
         self._joint_pose_client = ActionClient(
             self, ExecuteJointPose, ACTION_NAME
         )
@@ -34,6 +50,7 @@ class MilestoneIIController(Node):
             1,
         )
         self._active_goal = None
+        self._settling_timer = None
         self._connection_announced = False
         self._connection_timer = self.create_timer(0.5, self._check_connection)
 
@@ -56,6 +73,67 @@ class MilestoneIIController(Node):
             [3.097, -0.950, 0.600],
             [2.597, -0.850, 0.750],
         ]
+
+    def _joint_state_callback(self, message):
+        self._joint_positions.update(zip(message.name, message.position))
+
+    def _log_joint_positions(self):
+        """Print the latest measured positions for the configured joints."""
+        self.get_logger().info(
+            "Latest measured joint positions: "
+            + ", ".join(
+                f"{name}={self._joint_positions[name]:.4f}"
+                if name in self._joint_positions else f"{name}=unavailable"
+                for name in self.joints
+            )
+        )
+
+    def _log_end_effector_position(self):
+        """Print the latest end-effector position in the IK target frame."""
+        try:
+            transform = self._tf_buffer.lookup_transform(
+                IK_TARGET_FRAME, END_EFFECTOR_FRAME, Time()
+            )
+        except TransformException as error:
+            self.get_logger().warning(
+                f"End-effector position in {IK_TARGET_FRAME} unavailable: {error}"
+            )
+            return
+
+        position = transform.transform.translation
+        self.get_logger().info(
+            f"Latest end-effector position ({IK_TARGET_FRAME}, meters): "
+            f"x={position.x:.4f}, y={position.y:.4f}, z={position.z:.4f}"
+        )
+
+    def _schedule_settled_completion(self, callback):
+        """Let subscriptions run before logging and starting another goal."""
+        self._active_goal = "settling"
+
+        def finish():
+            self.destroy_timer(self._settling_timer)
+            self._settling_timer = None
+            self._active_goal = None
+            callback()
+
+        self._settling_timer = self.create_timer(SETTLING_DURATION_SECONDS, finish)
+
+    def _finish_joint_pose(self):
+        self._log_joint_positions()
+        self.fw_kinematics_sequence.pop(0)
+        if self.fw_kinematics_sequence:
+            self.send_joint_pose(self.joints, self.fw_kinematics_sequence[0])
+        elif self.inv_kinematics_sequence:
+            self.send_cartesian_point(self.inv_kinematics_sequence[0])
+
+    def _finish_cartesian_point(self):
+        self._log_joint_positions()
+        self._log_end_effector_position()
+        self.inv_kinematics_sequence.pop(0)
+        if self.inv_kinematics_sequence:
+            self.send_cartesian_point(self.inv_kinematics_sequence[0])
+        else:
+            self._clear_ik_target()
 
     def _initiate_sequence_callback(self, request, response):
         del request
@@ -165,12 +243,7 @@ class MilestoneIIController(Node):
             and result.success
         ):
             self.get_logger().info(f"Joint-pose goal complete: {result.message}")
-            # next pose
-            self.fw_kinematics_sequence.pop(0)
-            if len(self.fw_kinematics_sequence) > 0:
-                self.send_joint_pose(self.joints, self.fw_kinematics_sequence[0])
-            elif self.inv_kinematics_sequence:
-                self.send_cartesian_point(self.inv_kinematics_sequence[0])
+            self._schedule_settled_completion(self._finish_joint_pose)
             return
         self.get_logger().error(
             f"Joint-pose goal failed (status={wrapped_result.status}): "
@@ -193,7 +266,7 @@ class MilestoneIIController(Node):
 
         goal = ExecuteCartesianPoint.Goal()
         goal.target = PointStamped()
-        goal.target.header.frame_id = "map"
+        goal.target.header.frame_id = IK_TARGET_FRAME
         goal.target.header.stamp = self.get_clock().now().to_msg()
         goal.target.point.x, goal.target.point.y, goal.target.point.z = map(float, xyz)
         goal.duration_seconds = float(duration_seconds)
@@ -225,10 +298,10 @@ class MilestoneIIController(Node):
 
     def _ik_result_callback(self, future):
         self._active_goal = None
-        self._clear_ik_target()
         try:
             wrapped_result = future.result()
         except Exception as error:
+            self._clear_ik_target()
             self.get_logger().error(f"Could not receive Cartesian-point result: {error}")
             return
 
@@ -241,10 +314,9 @@ class MilestoneIIController(Node):
                     for name, position in zip(result.joint_names, result.positions)
                 )
             )
-            self.inv_kinematics_sequence.pop(0)
-            if self.inv_kinematics_sequence:
-                self.send_cartesian_point(self.inv_kinematics_sequence[0])
+            self._schedule_settled_completion(self._finish_cartesian_point)
             return
+        self._clear_ik_target()
         self.get_logger().error(
             f"Cartesian-point goal failed (status={wrapped_result.status}): "
             f"{result.message}"
@@ -256,6 +328,9 @@ class MilestoneIIController(Node):
         self._ik_target_publisher.publish(reset)
 
     def destroy_node(self):
+        if self._settling_timer is not None:
+            self.destroy_timer(self._settling_timer)
+            self._settling_timer = None
         self._clear_ik_target()
         self._joint_pose_client.destroy()
         self._cartesian_point_client.destroy()
