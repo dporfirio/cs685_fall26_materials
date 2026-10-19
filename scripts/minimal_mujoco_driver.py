@@ -16,7 +16,7 @@ PACKAGE_NAME = "cs685_fall26_materials"
 _scene_directory = None
 
 
-def _prepare_minimal_scene() -> Path:
+def _prepare_minimal_scene(scene_name="minimal_stretch.xml") -> Path:
     """Put the scene beside Stretch's XML and assets in a temporary directory."""
     global _scene_directory
     _scene_directory = tempfile.TemporaryDirectory(prefix="cs685_minimal_mujoco_")
@@ -25,7 +25,7 @@ def _prepare_minimal_scene() -> Path:
     course_scene = (
         Path(get_package_share_directory(PACKAGE_NAME))
         / "worlds"
-        / "minimal_stretch.xml"
+        / scene_name
     )
     robot_xml = Path(stretch_mujoco.default_robot_xml_path)
 
@@ -38,9 +38,11 @@ def _prepare_minimal_scene() -> Path:
 class MinimalStretchMujocoSimulator(StretchMujocoSimulator):
     """Select the minimal course scene when the driver supplies no custom model."""
 
+    scene_name = "minimal_stretch.xml"
+
     def __init__(self, scene_xml_path=None, model=None, **kwargs):
         if scene_xml_path is None and model is None:
-            scene_xml_path = str(_prepare_minimal_scene())
+            scene_xml_path = str(_prepare_minimal_scene(self.scene_name))
         super().__init__(scene_xml_path=scene_xml_path, model=model, **kwargs)
 
 
