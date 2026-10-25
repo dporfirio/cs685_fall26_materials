@@ -44,10 +44,12 @@ install(
     scripts/detect_objects_trusted.py
     scripts/kitchen_item_traveler.py
     scripts/large_house_mujoco_driver.py
+    scripts/large_maze_mujoco_driver.py
     scripts/locomotion_posture_guard.py
     scripts/minimal_mujoco_driver.py
     scripts/topdown_mujoco_driver.py
     scripts/topdown_video_recorder.py
+    scripts/two_rooms_mujoco_driver.py
   DESTINATION "lib/${PROJECT_NAME}"
 )
 
