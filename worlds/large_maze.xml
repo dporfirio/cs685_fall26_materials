@@ -1,0 +1,189 @@
+<mujoco model="large hallway and room maze">
+  <include file="stretch.xml"/>
+
+  <!-- 30 x 30 m footprint, 0.20 m thick and 2.4 m tall walls.
+       Grid passages have 1.80 m clearance. Six rooms open onto a connected
+       maze with junctions and dead ends. No ceiling; spawn is at (0, 0).
+       Layout uses a 15 x 15 grid, 2 m pitch, and deterministic seed 685. -->
+  <statistic center="0 0 1.2" extent="34" meansize="0.05"/>
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.4 0.4 0.4" specular="0 0 0"/>
+    <global azimuth="-90" elevation="-65"/>
+  </visual>
+  <asset>
+    <material name="maze_floor" rgba="0.32 0.34 0.36 1"/>
+    <material name="maze_wall" rgba="0.80 0.79 0.73 1"/>
+  </asset>
+  <default>
+    <default class="maze_wall">
+      <geom type="box" material="maze_wall" contype="1" conaffinity="1"/>
+    </default>
+  </default>
+  <worldbody>
+    <light pos="0 0 8" dir="0 0 -1" directional="true"/>
+    <geom name="maze_floor" type="plane" size="16 16 0.05" material="maze_floor"/>
+    <!-- central_spawn: interior approximately 5.8 x 5.8 m, center (0, 0). -->
+    <!-- southwest: interior approximately 5.8 x 5.8 m, center (-10, -10). -->
+    <!-- southeast: interior approximately 5.8 x 5.8 m, center (10, -10). -->
+    <!-- northwest: interior approximately 5.8 x 5.8 m, center (-10, 10). -->
+    <!-- northeast: interior approximately 5.8 x 5.8 m, center (10, 10). -->
+    <!-- east_gallery: interior approximately 7.8 x 5.8 m, center (9, 0). -->
+    <geom name="maze_boundary_west" class="maze_wall" pos="-15 0 1.2" size="0.1 15.1 1.2"/>
+    <geom name="maze_boundary_east" class="maze_wall" pos="15 0 1.2" size="0.1 15.1 1.2"/>
+    <geom name="maze_boundary_south" class="maze_wall" pos="0 -15 1.2" size="15 0.1 1.2"/>
+    <geom name="maze_boundary_north" class="maze_wall" pos="0 15 1.2" size="15 0.1 1.2"/>
+    <geom name="maze_vertical_0_2" class="maze_wall" pos="-13 -10 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_0_3" class="maze_wall" pos="-13 -8 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_0_4" class="maze_wall" pos="-13 -6 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_0_6" class="maze_wall" pos="-13 -2 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_0_7" class="maze_wall" pos="-13 0 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_0_8" class="maze_wall" pos="-13 2 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_1_4" class="maze_wall" pos="-11 -6 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_1_5" class="maze_wall" pos="-11 -4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_1_6" class="maze_wall" pos="-11 -2 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_1_9" class="maze_wall" pos="-11 4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_2_5" class="maze_wall" pos="-9 -4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_2_10" class="maze_wall" pos="-9 6 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_3_0" class="maze_wall" pos="-7 -14 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_3_2" class="maze_wall" pos="-7 -10 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_3_6" class="maze_wall" pos="-7 -2 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_3_9" class="maze_wall" pos="-7 4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_3_12" class="maze_wall" pos="-7 10 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_4_0" class="maze_wall" pos="-5 -14 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_4_1" class="maze_wall" pos="-5 -12 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_4_3" class="maze_wall" pos="-5 -8 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_4_4" class="maze_wall" pos="-5 -6 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_4_6" class="maze_wall" pos="-5 -2 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_4_7" class="maze_wall" pos="-5 0 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_4_8" class="maze_wall" pos="-5 2 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_4_11" class="maze_wall" pos="-5 8 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_4_12" class="maze_wall" pos="-5 10 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_5_1" class="maze_wall" pos="-3 -12 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_5_2" class="maze_wall" pos="-3 -10 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_5_5" class="maze_wall" pos="-3 -4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_5_6" class="maze_wall" pos="-3 -2 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_5_8" class="maze_wall" pos="-3 2 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_5_10" class="maze_wall" pos="-3 6 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_5_11" class="maze_wall" pos="-3 8 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_6_1" class="maze_wall" pos="-1 -12 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_6_2" class="maze_wall" pos="-1 -10 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_6_3" class="maze_wall" pos="-1 -8 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_6_4" class="maze_wall" pos="-1 -6 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_6_5" class="maze_wall" pos="-1 -4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_6_9" class="maze_wall" pos="-1 4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_6_10" class="maze_wall" pos="-1 6 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_6_12" class="maze_wall" pos="-1 10 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_6_13" class="maze_wall" pos="-1 12 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_7_4" class="maze_wall" pos="1 -6 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_7_5" class="maze_wall" pos="1 -4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_7_11" class="maze_wall" pos="1 8 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_7_14" class="maze_wall" pos="1 14 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_8_1" class="maze_wall" pos="3 -12 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_8_2" class="maze_wall" pos="3 -10 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_8_3" class="maze_wall" pos="3 -8 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_8_5" class="maze_wall" pos="3 -4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_8_12" class="maze_wall" pos="3 10 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_9_0" class="maze_wall" pos="5 -14 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_9_2" class="maze_wall" pos="5 -10 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_9_6" class="maze_wall" pos="5 -2 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_9_9" class="maze_wall" pos="5 4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_9_10" class="maze_wall" pos="5 6 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_9_12" class="maze_wall" pos="5 10 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_9_13" class="maze_wall" pos="5 12 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_10_1" class="maze_wall" pos="7 -12 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_10_9" class="maze_wall" pos="7 4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_10_11" class="maze_wall" pos="7 8 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_11_4" class="maze_wall" pos="9 -6 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_12_5" class="maze_wall" pos="11 -4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_13_0" class="maze_wall" pos="13 -14 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_13_8" class="maze_wall" pos="13 2 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_13_9" class="maze_wall" pos="13 4 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_vertical_13_10" class="maze_wall" pos="13 6 1.2" size="0.1 1.1 1.2"/>
+    <geom name="maze_horizontal_0_0" class="maze_wall" pos="-14 -13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_1_0" class="maze_wall" pos="-12 -13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_7_0" class="maze_wall" pos="0 -13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_9_0" class="maze_wall" pos="4 -13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_11_0" class="maze_wall" pos="8 -13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_4_1" class="maze_wall" pos="-6 -11 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_8_1" class="maze_wall" pos="2 -11 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_10_1" class="maze_wall" pos="6 -11 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_5_2" class="maze_wall" pos="-4 -9 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_7_2" class="maze_wall" pos="0 -9 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_10_2" class="maze_wall" pos="6 -9 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_14_2" class="maze_wall" pos="14 -9 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_2_3" class="maze_wall" pos="-10 -7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_3_3" class="maze_wall" pos="-8 -7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_4_3" class="maze_wall" pos="-6 -7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_6_3" class="maze_wall" pos="-2 -7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_8_3" class="maze_wall" pos="2 -7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_9_3" class="maze_wall" pos="4 -7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_10_3" class="maze_wall" pos="6 -7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_13_3" class="maze_wall" pos="12 -7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_14_3" class="maze_wall" pos="14 -7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_4_4" class="maze_wall" pos="-6 -5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_5_4" class="maze_wall" pos="-4 -5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_9_4" class="maze_wall" pos="4 -5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_10_4" class="maze_wall" pos="6 -5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_11_4" class="maze_wall" pos="8 -5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_12_4" class="maze_wall" pos="10 -5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_13_4" class="maze_wall" pos="12 -5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_1_5" class="maze_wall" pos="-12 -3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_3_5" class="maze_wall" pos="-8 -3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_4_5" class="maze_wall" pos="-6 -3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_7_5" class="maze_wall" pos="0 -3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_9_5" class="maze_wall" pos="4 -3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_11_5" class="maze_wall" pos="8 -3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_14_5" class="maze_wall" pos="14 -3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_2_6" class="maze_wall" pos="-10 -1 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_1_7" class="maze_wall" pos="-12 1 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_2_7" class="maze_wall" pos="-10 1 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_3_7" class="maze_wall" pos="-8 1 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_4_7" class="maze_wall" pos="-6 1 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_9_7" class="maze_wall" pos="4 1 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_14_7" class="maze_wall" pos="14 1 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_2_8" class="maze_wall" pos="-10 3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_3_8" class="maze_wall" pos="-8 3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_5_8" class="maze_wall" pos="-4 3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_7_8" class="maze_wall" pos="0 3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_8_8" class="maze_wall" pos="2 3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_9_8" class="maze_wall" pos="4 3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_12_8" class="maze_wall" pos="10 3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_13_8" class="maze_wall" pos="12 3 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_0_9" class="maze_wall" pos="-14 5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_1_9" class="maze_wall" pos="-12 5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_2_9" class="maze_wall" pos="-10 5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_4_9" class="maze_wall" pos="-6 5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_5_9" class="maze_wall" pos="-4 5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_8_9" class="maze_wall" pos="2 5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_9_9" class="maze_wall" pos="4 5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_11_9" class="maze_wall" pos="8 5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_12_9" class="maze_wall" pos="10 5 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_0_10" class="maze_wall" pos="-14 7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_3_10" class="maze_wall" pos="-8 7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_7_10" class="maze_wall" pos="0 7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_8_10" class="maze_wall" pos="2 7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_10_10" class="maze_wall" pos="6 7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_11_10" class="maze_wall" pos="8 7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_12_10" class="maze_wall" pos="10 7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_13_10" class="maze_wall" pos="12 7 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_4_11" class="maze_wall" pos="-6 9 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_6_11" class="maze_wall" pos="-2 9 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_9_11" class="maze_wall" pos="4 9 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_0_12" class="maze_wall" pos="-14 11 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_5_12" class="maze_wall" pos="-4 11 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_7_12" class="maze_wall" pos="0 11 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_8_12" class="maze_wall" pos="2 11 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_10_12" class="maze_wall" pos="6 11 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_14_12" class="maze_wall" pos="14 11 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_1_13" class="maze_wall" pos="-12 13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_2_13" class="maze_wall" pos="-10 13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_3_13" class="maze_wall" pos="-8 13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_4_13" class="maze_wall" pos="-6 13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_5_13" class="maze_wall" pos="-4 13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_6_13" class="maze_wall" pos="-2 13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_9_13" class="maze_wall" pos="4 13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_11_13" class="maze_wall" pos="8 13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_12_13" class="maze_wall" pos="10 13 1.2" size="1.1 0.1 1.2"/>
+    <geom name="maze_horizontal_13_13" class="maze_wall" pos="12 13 1.2" size="1.1 0.1 1.2"/>
+  </worldbody>
+</mujoco>

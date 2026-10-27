@@ -201,9 +201,52 @@ class RobotKinematics(Node):
         return result
 
     def _inverse_kinematics(self, target_x, target_y, target_z):
-        """Solve the complete Cartesian Stretch chain."""
-        # TODO: Milestone II — compute joint values for the target Cartesian position
-        raise RuntimeError("Inverse kinematics is not implemented")
+        """Solve the complete Cartesian Stretch chain with IKPy."""
+        initial = np.zeros(len(self._ik_chain.links), dtype=float)
+        arm_segment_position = self._joint_positions[ARM_JOINT] / 4.0
+        for index, link in enumerate(self._ik_chain.links):
+            print(link)
+            if link.name == BASE_TRANSLATION_JOINT:
+                initial[index] = 0.0
+            elif link.name in ARM_SEGMENT_JOINTS:
+                initial[index] = arm_segment_position
+            elif link.name in self._joint_positions:
+                initial[index] = self._joint_positions[link.name]
+
+        print(initial)
+        target = np.array([target_x, target_y, target_z], dtype=float)
+        solution = self._ik_chain.inverse_kinematics(
+            target_position=target,
+            initial_position=initial,
+        )
+        achieved = self._ik_chain.forward_kinematics(solution)[:3, 3]
+        error = float(np.linalg.norm(achieved - target))
+        if error > IK_POSITION_TOLERANCE:
+            raise ValueError(
+                f"best IK solution misses the target by {error:.3f} m"
+            )
+
+        solution_by_name = {
+            link.name: float(solution[index])
+            for index, link in enumerate(self._ik_chain.links)
+        }
+        joint_names = [
+            BASE_TRANSLATION_JOINT,
+            LIFT_JOINT,
+            ARM_JOINT,
+            WRIST_YAW_JOINT,
+            WRIST_PITCH_JOINT,
+            WRIST_ROLL_JOINT,
+        ]
+        positions = [
+            solution_by_name[BASE_TRANSLATION_JOINT],
+            solution_by_name[LIFT_JOINT],
+            sum(solution_by_name[name] for name in ARM_SEGMENT_JOINTS),
+            solution_by_name[WRIST_YAW_JOINT],
+            solution_by_name[WRIST_PITCH_JOINT],
+            solution_by_name[WRIST_ROLL_JOINT],
+        ]
+        return joint_names, positions
 
     def _create_ik_chain(self):
         """Create the tutorial's Cartesian chain from Stretch's installed URDF."""
@@ -356,8 +399,46 @@ class RobotKinematics(Node):
         duration_seconds=0.0,
     ):
         """Package and execute one joint pose for both the FK and IK actions."""
-        # TODO: Milestone II — execute the requested joint pose
-        return False, "Forward kinematics is not implemented"
+        if duration_seconds <= 0.0:
+            duration_seconds = TRAJECTORY_DURATION_SECONDS
+
+        publish_feedback("Waiting for the trajectory controller")
+        if not self._trajectory_client.wait_for_server(timeout_sec=5.0):
+            return False, f"Trajectory action server unavailable: {TRAJECTORY_ACTION_NAME}"
+
+        trajectory_goal = FollowJointTrajectory.Goal()
+        trajectory_goal.trajectory.joint_names = joint_names
+        point = JointTrajectoryPoint()
+        point.positions = positions
+        point.time_from_start.sec = int(duration_seconds)
+        point.time_from_start.nanosec = int(
+            (duration_seconds - int(duration_seconds)) * 1e9
+        )
+        trajectory_goal.trajectory.points = [point]
+
+        publish_feedback("Sending trajectory to the robot")
+        try:
+            trajectory_handle = await self._trajectory_client.send_goal_async(
+                trajectory_goal
+            )
+            if not trajectory_handle.accepted:
+                return False, "The trajectory controller rejected the joint pose"
+
+            publish_feedback("Trajectory accepted; waiting for completion")
+            trajectory_result = await trajectory_handle.get_result_async()
+        except Exception as error:
+            return False, f"Trajectory execution failed: {error}"
+
+        driver_result = trajectory_result.result
+        if (
+            trajectory_result.status != GoalStatus.STATUS_SUCCEEDED
+            or driver_result.error_code != FollowJointTrajectory.Result.SUCCESSFUL
+        ):
+            return False, (
+                f"Trajectory failed with status {trajectory_result.status}, "
+                f"error code {driver_result.error_code}: {driver_result.error_string}"
+            )
+        return True, "Robot achieved the requested joint pose"
 
     @staticmethod
     def _publish_joint_feedback(goal_handle, status):
