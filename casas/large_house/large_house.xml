@@ -3728,7 +3728,7 @@
       <geom name="obj_g32" type="mesh" friction="0.95 0.3 0.1" solref="0.001 2" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="obj_model_normalized_collision_13._coll" />
       <site name="obj_default_site" pos="0 0 0" size="0.0018" rgba="1 0 0 0" />
     </body>
-    <body name="distr_counter_main" pos="2.643068286952645 -0.1348293264838223 1.03125" quat="0.9885297 0.0 0.0 -0.15102656">
+    <body name="distr_counter_main" pos="0.304992 -1.98 0.8366253" quat="0.9885297 0.0 0.0 -0.15102656">
       <joint name="distr_counter_joint0" type="free" limited="false" actuatorfrclimited="false" damping="0.0005" />
       <geom name="distr_counter_g0" type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" solref="0.001 2" solimp="0.998 0.998" density="100" material="distr_counter_Black_plast" mesh="distr_counter_model_normalized_0_vis" />
       <geom name="distr_counter_g1" type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" solref="0.001 2" solimp="0.998 0.998" density="100" material="distr_counter_plastic_transp" mesh="distr_counter_model_normalized_1_vis" />
@@ -3766,7 +3766,7 @@
       <geom name="distr_counter_g33" type="mesh" friction="0.95 0.3 0.1" solref="0.001 2" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="distr_counter_model_normalized_collision_13._coll" />
       <site name="distr_counter_default_site" pos="0 0 0" size="0.003" rgba="1 0 0 0" />
     </body>
-    <body name="distr_cab_main" pos="3.0174895345702333 -0.0890132623838231 1.5143119164999999" quat="0.9618186 0.0 0.0 -0.27368778">
+    <body name="distr_cab_main" pos="2.643068286952645 -0.1348293264838223 1.015" quat="0.9618186 0.0 0.0 -0.27368778">
       <joint name="distr_cab_joint0" type="free" limited="false" actuatorfrclimited="false" damping="0.0005" />
       <geom name="distr_cab_g0" type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" solref="0.001 2" solimp="0.998 0.998" density="100" material="distr_cab_lambert1.004" mesh="distr_cab_model_normalized_0_vis" />
       <geom name="distr_cab_g1" type="mesh" friction="0.95 0.3 0.1" solref="0.001 2" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="distr_cab_model_normalized_collision_22._coll" />

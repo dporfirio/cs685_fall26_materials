@@ -48,7 +48,17 @@ def _load_large_house_model():
             element.set("file", _resolve_asset_path(asset_path))
 
     xml = ET.tostring(root, encoding="unicode")
-    return mujoco.MjModel.from_xml_string(xml), xml, {}
+    model = mujoco.MjModel.from_xml_string(xml)
+    # The included robot XML carries a pose beside the kitchen cabinets.
+    # Set the free joint's initial x/y to the kitchen floor center, retaining
+    # the robot's original height and orientation.
+    base = model.body("base_link")
+    joint_id = int(base.jntadr[0])
+    if joint_id < 0 or model.jnt_type[joint_id] != mujoco.mjtJoint.mjJNT_FREE:
+        raise ValueError("Expected base_link to have a free joint")
+    qpos_address = int(model.jnt_qposadr[joint_id])
+    model.qpos0[qpos_address : qpos_address + 2] = [3.04, -3.0]
+    return model, xml, {}
 
 
 def main():
