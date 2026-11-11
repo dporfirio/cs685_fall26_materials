@@ -1,8 +1,8 @@
 import launch_ros.actions
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 
 
@@ -22,6 +22,13 @@ class _LargeHouseLaunchDescriptionSource(PythonLaunchDescriptionSource):
             if kwargs.get("executable") == "stretch_mujoco_driver":
                 kwargs["package"] = "cs685_fall26_materials"
                 kwargs["executable"] = "large_house_mujoco_driver.py"
+                environment = dict(kwargs.get("additional_env") or {})
+                environment.update({
+                    "CS685_START_X": LaunchConfiguration("start_x"),
+                    "CS685_START_Y": LaunchConfiguration("start_y"),
+                    "CS685_START_YAW": LaunchConfiguration("start_yaw"),
+                })
+                kwargs["additional_env"] = environment
             return original_node(*args, **kwargs)
 
         import sys
@@ -36,6 +43,11 @@ class _LargeHouseLaunchDescriptionSource(PythonLaunchDescriptionSource):
 
 
 def generate_launch_description():
+    start_arguments = [
+        DeclareLaunchArgument("start_x", default_value="3.04", description="Initial world x position in meters"),
+        DeclareLaunchArgument("start_y", default_value="-3.0", description="Initial world y position in meters"),
+        DeclareLaunchArgument("start_yaw", default_value="model", description="Initial world yaw in radians, or model to retain the scene orientation"),
+    ]
     stretch_launch = IncludeLaunchDescription(
         _LargeHouseLaunchDescriptionSource(
             PathJoinSubstitution(
@@ -53,4 +65,4 @@ def generate_launch_description():
             "use_rviz": "false",
         }.items(),
     )
-    return LaunchDescription([stretch_launch])
+    return LaunchDescription(start_arguments + [stretch_launch])

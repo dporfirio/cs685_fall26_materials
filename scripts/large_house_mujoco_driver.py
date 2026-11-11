@@ -2,6 +2,8 @@
 
 """ROS Stretch driver for the packaged large-house MuJoCo scene."""
 
+import math
+import os
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
@@ -50,14 +52,30 @@ def _load_large_house_model():
     xml = ET.tostring(root, encoding="unicode")
     model = mujoco.MjModel.from_xml_string(xml)
     # The included robot XML carries a pose beside the kitchen cabinets.
-    # Set the free joint's initial x/y to the kitchen floor center, retaining
-    # the robot's original height and orientation.
+    # Default to the kitchen floor center and preserve the original height.
+    # Launch overrides arrive through this driver process's environment.
     base = model.body("base_link")
     joint_id = int(base.jntadr[0])
     if joint_id < 0 or model.jnt_type[joint_id] != mujoco.mjtJoint.mjJNT_FREE:
         raise ValueError("Expected base_link to have a free joint")
     qpos_address = int(model.jnt_qposadr[joint_id])
-    model.qpos0[qpos_address : qpos_address + 2] = [3.04, -3.0]
+    start_x = float(os.environ.get("CS685_START_X", "3.04"))
+    start_y = float(os.environ.get("CS685_START_Y", "-3.0"))
+    start_yaw = os.environ.get("CS685_START_YAW", "model")
+    if not all(math.isfinite(value) for value in (start_x, start_y)):
+        raise ValueError("start_x and start_y must be finite numbers")
+    model.qpos0[qpos_address : qpos_address + 2] = [start_x, start_y]
+    if start_yaw != "model":
+        yaw = float(start_yaw)
+        if not math.isfinite(yaw):
+            raise ValueError("start_yaw must be a finite angle in radians or 'model'")
+        # Replace yaw while retaining the model's roll and pitch.
+        quaternion = model.qpos0[qpos_address + 3 : qpos_address + 7]
+        w, x, y, z = quaternion
+        original_yaw = math.atan2(2 * (w * z + x * y), 1 - 2 * (y * y + z * z))
+        half_delta = (yaw - original_yaw) / 2
+        c, s = math.cos(half_delta), math.sin(half_delta)
+        quaternion[:] = [c * w - s * z, c * x - s * y, c * y + s * x, c * z + s * w]
     return model, xml, {}
 
 
