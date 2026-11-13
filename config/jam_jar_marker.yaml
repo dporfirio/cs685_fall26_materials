@@ -1,0 +1,14 @@
+# Supply at detector startup, after Stretch's stretch_marker_dict.yaml,
+# using a second --params-file argument (or a second launch parameters entry).
+# The detector reads marker metadata once at startup; runtime loading is insufficient.
+# Scene: casas/large_house/large_house.xml; dictionary: DICT_6X6_250.
+# ID 100 is unassigned in Stretch's standard marker dictionary.
+# length_mm measures the black square, excluding the white margin.
+/**:
+  ros__parameters:
+    aruco_marker_info:
+      '100':
+        length_mm: 33.6
+        use_rgb_only: false
+        name: 'jam_jar'
+        link: 'None'

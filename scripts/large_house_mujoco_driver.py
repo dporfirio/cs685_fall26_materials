@@ -36,6 +36,33 @@ def _resolve_asset_path(path: str) -> str:
     return path
 
 
+def _apply_start_lift(model):
+    """Override the lift only when requested by the launching process."""
+    fraction = os.environ.get("CS685_START_LIFT_FRACTION")
+    if fraction is None:
+        return
+    fraction = float(fraction)
+    if not math.isfinite(fraction) or not 0.0 <= fraction <= 1.0:
+        raise ValueError("start_lift_fraction must be a finite number between 0 and 1")
+    lift = model.joint("joint_lift")
+    lower, upper = lift.range
+    position = lower + fraction * (upper - lower)
+    qpos_address = int(lift.qposadr[0])
+    # For a slide joint, qpos0 is also its kinematic reference. Compensate
+    # the body offset so changing the initial coordinate preserves the
+    # physical meaning of every lift position (including its limits).
+    body_id = int(lift.bodyid[0])
+    axis_in_parent = lift.axis.copy()
+    mujoco.mju_rotVecQuat(axis_in_parent, lift.axis, model.body_quat[body_id])
+    delta = position - model.qpos0[qpos_address]
+    for axis in range(3):
+        model.body_pos[body_id, axis] += axis_in_parent[axis] * delta
+    model.qpos0[qpos_address] = position
+    # Simulator.start() calls home(); retain the requested lift target there.
+    actuator_id = int(model.actuator("lift").id)
+    model.keyframe("home").ctrl[actuator_id] = position
+
+
 def _load_large_house_model():
     scene_path = (
         Path(get_package_share_directory(PACKAGE_NAME))
@@ -76,6 +103,7 @@ def _load_large_house_model():
         half_delta = (yaw - original_yaw) / 2
         c, s = math.cos(half_delta), math.sin(half_delta)
         quaternion[:] = [c * w - s * z, c * x - s * y, c * y + s * x, c * z + s * w]
+    _apply_start_lift(model)
     return model, xml, {}
 
 
