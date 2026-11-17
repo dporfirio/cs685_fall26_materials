@@ -8,7 +8,7 @@
   ros__parameters:
     aruco_marker_info:
       '100':
-        length_mm: 33.6
+        length_mm: 50.0
         use_rgb_only: false
         name: 'jam_jar'
         link: 'None'

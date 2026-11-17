@@ -41,6 +41,7 @@ install(
   PROGRAMS
     scripts/autonomous_explorer.py
     scripts/controller.py
+    scripts/detect_aruco_sim.py
     scripts/detect_objects_trusted.py
     scripts/kitchen_item_traveler.py
     scripts/large_house_mujoco_driver.py

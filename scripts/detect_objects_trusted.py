@@ -43,6 +43,8 @@ class TrustedObjectDetector(object_detect_pytorch.ObjectDetector):
                 "yolov5s",
                 trust_repo=True,
             )
+            # Retain lower-confidence predictions before Stretch's filtering.
+            self.model.conf = 0.05
         finally:
             os.chdir(previous_directory)
         self.confidence_threshold = confidence_threshold

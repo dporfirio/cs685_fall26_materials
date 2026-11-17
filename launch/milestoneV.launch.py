@@ -1,7 +1,10 @@
 """Launch milestone V in the large house environment."""
 
+import json
+import math
+
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, GroupAction, IncludeLaunchDescription, SetEnvironmentVariable
+from launch.actions import DeclareLaunchArgument, ExecuteProcess, GroupAction, IncludeLaunchDescription, SetEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import EnvironmentVariable, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
@@ -41,6 +44,26 @@ def generate_launch_description():
                     "start_yaw": LaunchConfiguration("start_yaw"),
                     "mode": "position",
                 }.items(),
+            ),
+            # The CLI waits for the driver's action server, which is created
+            # after simulator startup and homing. Other launches keep their
+            # existing head pose, and no timing delay is needed here.
+            ExecuteProcess(
+                cmd=[
+                    "ros2", "action", "send_goal",
+                    "/stretch_controller/follow_joint_trajectory",
+                    "control_msgs/action/FollowJointTrajectory",
+                    json.dumps({
+                        "trajectory": {
+                            "joint_names": ["joint_head_pan", "joint_head_tilt"],
+                            "points": [{
+                                "positions": [-math.pi / 2, -math.pi / 6],
+                                "time_from_start": {"sec": 2, "nanosec": 0},
+                            }],
+                        },
+                    }),
+                ],
+                output="screen",
             ),
         ]),
     ])
