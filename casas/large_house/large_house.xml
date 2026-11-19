@@ -1,6 +1,6 @@
 <mujoco model="base">
-     <include file="/Users/dporfiri/Documents/bin/stretch_mujoco/stretch_mujoco/models/stretch_temp_abs.xml" />
-  <compiler angle="radian" meshdir="meshes/" />
+  <include file="stretch_mujoco/models/stretch.xml" />
+  <compiler angle="radian" assetdir="stretch_mujoco/models/assets" />
 
   <size njmax="5000" nconmax="5000" />
 
@@ -10,78 +10,78 @@
 
   <asset>
     <texture type="skybox" builtin="flat" rgb1="1 1 1" rgb2="1 1 1" width="256" height="1536" />
-    <texture type="2d" name="wall_room_wall" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/tiles/white_square_tiles.png" />
-    <texture type="2d" name="wall_backing_room_wall" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/flat/light_gray.png" />
-    <texture type="2d" name="wall_left_room_wall" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/tiles/white_square_tiles.png" />
-    <texture type="2d" name="wall_left_backing_room_wall" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/flat/light_gray.png" />
-    <texture type="2d" name="wall_right_room_wall" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/tiles/white_square_tiles.png" />
-    <texture type="2d" name="wall_right_backing_room_wall" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/flat/light_gray.png" />
-    <texture type="2d" name="outlet_room_tex-outlet" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/material_0.png" />
-    <texture type="2d" name="outlet_room_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/image0.png" />
-    <texture type="2d" name="light_switch_room_tex-light_switch" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/material_0.png" />
-    <texture type="2d" name="light_switch_room_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/image0.png" />
-    <texture type="2d" name="light_switch_2_room_tex-light_switch" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/material_0.png" />
-    <texture type="2d" name="light_switch_2_room_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/image0.png" />
-    <texture type="2d" name="outlet_2_room_tex-outlet" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/material_0.png" />
-    <texture type="2d" name="outlet_2_room_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/image0.png" />
-    <texture type="2d" name="outlet_3_room_tex-outlet" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/material_0.png" />
-    <texture type="2d" name="outlet_3_room_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/image0.png" />
-    <texture type="2d" name="floor_room_wall" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/tiles/flower_ceramic.png" />
-    <texture type="2d" name="floor_backing_room_wall" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/flat/light_gray.png" />
-    <texture type="2d" name="marble/marble_5_2d" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/marble/marble_5.png" />
-    <texture type="cube" name="flat/dark_blue" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/flat/dark_blue.png" />
-    <texture type="2d" name="stovetop_main_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/material_0.png" />
-    <texture type="2d" name="stovetop_main_group_image21" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/image21.png" />
-    <texture type="cube" name="box" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/flat/dark_blue.png" />
-    <texture type="2d" name="flat/dark_blue_2d" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/flat/dark_blue.png" />
-    <texture type="cube" name="metals/brass" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/metals/brass.png" />
-    <texture type="2d" name="wood/light_wood_planks_2d" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/wood/light_wood_planks.png" />
-    <texture type="2d" name="hood_main_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/hoods/pack_2/visuals/material_0.png" />
-    <texture type="2d" name="hood_main_group_image4" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/hoods/pack_2/visuals/image4.png" />
-    <texture type="2d" name="coffee_machine_main_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/material_0.png" />
-    <texture type="2d" name="coffee_machine_main_group_image3" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image3.png" />
-    <texture type="2d" name="coffee_machine_main_group_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image0.png" />
-    <texture type="2d" name="coffee_machine_main_group_image8" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image8.png" />
-    <texture type="2d" name="coffee_machine_main_group_image1" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image1.png" />
-    <texture type="2d" name="coffee_machine_main_group_image6" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image6.png" />
-    <texture type="2d" name="coffee_machine_main_group_image10" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image10.png" />
-    <texture type="2d" name="coffee_machine_main_group_image12" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image12.png" />
-    <texture type="2d" name="toaster_main_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/toasters/basic_popup_2/visuals/material_0.png" />
-    <texture type="2d" name="toaster_main_group_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/toasters/basic_popup_2/visuals/image0.png" />
-    <texture type="2d" name="toaster_main_group_image3" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/toasters/basic_popup_2/visuals/image3.png" />
-    <texture type="2d" name="stool_1_front_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/material_0.png" />
-    <texture type="2d" name="stool_1_front_group_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/image0.png" />
-    <texture type="2d" name="stool_2_front_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/material_0.png" />
-    <texture type="2d" name="stool_2_front_group_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/image0.png" />
-    <texture type="2d" name="stool_3_front_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/material_0.png" />
-    <texture type="2d" name="stool_3_front_group_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/image0.png" />
-    <texture type="2d" name="sink_left_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/sinks/concrete_sink/visuals/material_0.png" />
-    <texture type="2d" name="sink_left_group_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/sinks/concrete_sink/visuals/image0.png" />
-    <texture type="2d" name="dishwasher_left_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/dishwashers/pack_2/visuals/material_0.png" />
-    <texture type="2d" name="dishwasher_left_group_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/dishwashers/pack_2/visuals/image0.png" />
-    <texture type="2d" name="dishwasher_left_group_image23" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/dishwashers/pack_2/visuals/image23.png" />
-    <texture type="2d" name="window_group_left_group_panel_tex" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/wood/dark_wood_planks.png" />
-    <texture type="2d" name="window_group_left_group_blurred_bak" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/flat/warm_white.png" />
-    <texture type="2d" name="plant_left_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/material_0.png" />
-    <texture type="2d" name="plant_left_group_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/image0.png" />
-    <texture type="2d" name="plant_left_group_image1" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/image1.png" />
-    <texture type="2d" name="plant_left_group_image2" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/image2.png" />
-    <texture type="2d" name="plant_left_group_image3" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/image3.png" />
-    <texture type="2d" name="paper_towel_left_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/paper_towel_holders/holder_4/visuals/material_0.png" />
-    <texture type="2d" name="paper_towel_left_group_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/paper_towel_holders/holder_4/visuals/image0.png" />
-    <texture type="2d" name="fridge_right_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/fridges/pack_2/visuals/material_0.png" />
-    <texture type="2d" name="fridge_right_group_image27" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/fridges/pack_2/visuals/image27.png" />
-    <texture type="2d" name="fridge_right_group_image30" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/fridges/pack_2/visuals/image30.png" />
-    <texture type="2d" name="oven_right_group_tex-model" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/ovens/pack_1/visuals/material_0.png" />
-    <texture type="2d" name="oven_right_group_image25" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/ovens/pack_1/visuals/image25.png" />
-    <texture type="2d" name="oven_right_group_image28" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/ovens/pack_1/visuals/image28.png" />
-    <texture type="2d" name="oven_right_group_image31" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/ovens/pack_1/visuals/image31.png" />
-    <texture type="2d" name="microwave_right_group_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/image0.png" />
-    <texture type="2d" name="microwave_right_group_image2" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/image2.png" />
-    <texture type="2d" name="microwave_right_group_image4" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/image4.png" />
-    <texture type="2d" name="microwave_right_group_image3" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/image3.png" />
-    <texture type="2d" name="obj_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/visual/image0.png" />
-    <texture type="2d" name="distr_cab_image0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/visual/image0.png" />
+    <texture type="2d" name="wall_room_wall" file="robocasa/models/assets/textures/tiles/white_square_tiles.png" />
+    <texture type="2d" name="wall_backing_room_wall" file="robocasa/models/assets/textures/flat/light_gray.png" />
+    <texture type="2d" name="wall_left_room_wall" file="robocasa/models/assets/textures/tiles/white_square_tiles.png" />
+    <texture type="2d" name="wall_left_backing_room_wall" file="robocasa/models/assets/textures/flat/light_gray.png" />
+    <texture type="2d" name="wall_right_room_wall" file="robocasa/models/assets/textures/tiles/white_square_tiles.png" />
+    <texture type="2d" name="wall_right_backing_room_wall" file="robocasa/models/assets/textures/flat/light_gray.png" />
+    <texture type="2d" name="outlet_room_tex-outlet" file="robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/material_0.png" />
+    <texture type="2d" name="outlet_room_image0" file="robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/image0.png" />
+    <texture type="2d" name="light_switch_room_tex-light_switch" file="robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/material_0.png" />
+    <texture type="2d" name="light_switch_room_image0" file="robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/image0.png" />
+    <texture type="2d" name="light_switch_2_room_tex-light_switch" file="robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/material_0.png" />
+    <texture type="2d" name="light_switch_2_room_image0" file="robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/image0.png" />
+    <texture type="2d" name="outlet_2_room_tex-outlet" file="robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/material_0.png" />
+    <texture type="2d" name="outlet_2_room_image0" file="robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/image0.png" />
+    <texture type="2d" name="outlet_3_room_tex-outlet" file="robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/material_0.png" />
+    <texture type="2d" name="outlet_3_room_image0" file="robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/image0.png" />
+    <texture type="2d" name="floor_room_wall" file="robocasa/models/assets/textures/tiles/flower_ceramic.png" />
+    <texture type="2d" name="floor_backing_room_wall" file="robocasa/models/assets/textures/flat/light_gray.png" />
+    <texture type="2d" name="marble/marble_5_2d" file="robocasa/models/assets/textures/marble/marble_5.png" />
+    <texture type="cube" name="flat/dark_blue" file="robocasa/models/assets/textures/flat/dark_blue.png" />
+    <texture type="2d" name="stovetop_main_group_tex-model" file="robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/material_0.png" />
+    <texture type="2d" name="stovetop_main_group_image21" file="robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/image21.png" />
+    <texture type="cube" name="box" file="robocasa/models/assets/textures/flat/dark_blue.png" />
+    <texture type="2d" name="flat/dark_blue_2d" file="robocasa/models/assets/textures/flat/dark_blue.png" />
+    <texture type="cube" name="metals/brass" file="robocasa/models/assets/textures/metals/brass.png" />
+    <texture type="2d" name="wood/light_wood_planks_2d" file="robocasa/models/assets/textures/wood/light_wood_planks.png" />
+    <texture type="2d" name="hood_main_group_tex-model" file="robocasa/models/assets/fixtures/hoods/pack_2/visuals/material_0.png" />
+    <texture type="2d" name="hood_main_group_image4" file="robocasa/models/assets/fixtures/hoods/pack_2/visuals/image4.png" />
+    <texture type="2d" name="coffee_machine_main_group_tex-model" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/material_0.png" />
+    <texture type="2d" name="coffee_machine_main_group_image3" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image3.png" />
+    <texture type="2d" name="coffee_machine_main_group_image0" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image0.png" />
+    <texture type="2d" name="coffee_machine_main_group_image8" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image8.png" />
+    <texture type="2d" name="coffee_machine_main_group_image1" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image1.png" />
+    <texture type="2d" name="coffee_machine_main_group_image6" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image6.png" />
+    <texture type="2d" name="coffee_machine_main_group_image10" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image10.png" />
+    <texture type="2d" name="coffee_machine_main_group_image12" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/image12.png" />
+    <texture type="2d" name="toaster_main_group_tex-model" file="robocasa/models/assets/fixtures/toasters/basic_popup_2/visuals/material_0.png" />
+    <texture type="2d" name="toaster_main_group_image0" file="robocasa/models/assets/fixtures/toasters/basic_popup_2/visuals/image0.png" />
+    <texture type="2d" name="toaster_main_group_image3" file="robocasa/models/assets/fixtures/toasters/basic_popup_2/visuals/image3.png" />
+    <texture type="2d" name="stool_1_front_group_tex-model" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/material_0.png" />
+    <texture type="2d" name="stool_1_front_group_image0" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/image0.png" />
+    <texture type="2d" name="stool_2_front_group_tex-model" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/material_0.png" />
+    <texture type="2d" name="stool_2_front_group_image0" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/image0.png" />
+    <texture type="2d" name="stool_3_front_group_tex-model" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/material_0.png" />
+    <texture type="2d" name="stool_3_front_group_image0" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/image0.png" />
+    <texture type="2d" name="sink_left_group_tex-model" file="robocasa/models/assets/fixtures/sinks/concrete_sink/visuals/material_0.png" />
+    <texture type="2d" name="sink_left_group_image0" file="robocasa/models/assets/fixtures/sinks/concrete_sink/visuals/image0.png" />
+    <texture type="2d" name="dishwasher_left_group_tex-model" file="robocasa/models/assets/fixtures/dishwashers/pack_2/visuals/material_0.png" />
+    <texture type="2d" name="dishwasher_left_group_image0" file="robocasa/models/assets/fixtures/dishwashers/pack_2/visuals/image0.png" />
+    <texture type="2d" name="dishwasher_left_group_image23" file="robocasa/models/assets/fixtures/dishwashers/pack_2/visuals/image23.png" />
+    <texture type="2d" name="window_group_left_group_panel_tex" file="robocasa/models/assets/textures/wood/dark_wood_planks.png" />
+    <texture type="2d" name="window_group_left_group_blurred_bak" file="robocasa/models/assets/textures/flat/warm_white.png" />
+    <texture type="2d" name="plant_left_group_tex-model" file="robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/material_0.png" />
+    <texture type="2d" name="plant_left_group_image0" file="robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/image0.png" />
+    <texture type="2d" name="plant_left_group_image1" file="robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/image1.png" />
+    <texture type="2d" name="plant_left_group_image2" file="robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/image2.png" />
+    <texture type="2d" name="plant_left_group_image3" file="robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/image3.png" />
+    <texture type="2d" name="paper_towel_left_group_tex-model" file="robocasa/models/assets/fixtures/accessories/paper_towel_holders/holder_4/visuals/material_0.png" />
+    <texture type="2d" name="paper_towel_left_group_image0" file="robocasa/models/assets/fixtures/accessories/paper_towel_holders/holder_4/visuals/image0.png" />
+    <texture type="2d" name="fridge_right_group_tex-model" file="robocasa/models/assets/fixtures/fridges/pack_2/visuals/material_0.png" />
+    <texture type="2d" name="fridge_right_group_image27" file="robocasa/models/assets/fixtures/fridges/pack_2/visuals/image27.png" />
+    <texture type="2d" name="fridge_right_group_image30" file="robocasa/models/assets/fixtures/fridges/pack_2/visuals/image30.png" />
+    <texture type="2d" name="oven_right_group_tex-model" file="robocasa/models/assets/fixtures/ovens/pack_1/visuals/material_0.png" />
+    <texture type="2d" name="oven_right_group_image25" file="robocasa/models/assets/fixtures/ovens/pack_1/visuals/image25.png" />
+    <texture type="2d" name="oven_right_group_image28" file="robocasa/models/assets/fixtures/ovens/pack_1/visuals/image28.png" />
+    <texture type="2d" name="oven_right_group_image31" file="robocasa/models/assets/fixtures/ovens/pack_1/visuals/image31.png" />
+    <texture type="2d" name="microwave_right_group_image0" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/image0.png" />
+    <texture type="2d" name="microwave_right_group_image2" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/image2.png" />
+    <texture type="2d" name="microwave_right_group_image4" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/image4.png" />
+    <texture type="2d" name="microwave_right_group_image3" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/image3.png" />
+    <texture type="2d" name="obj_image0" file="robocasa/models/assets/objects/objaverse/jam/jam_2/visual/image0.png" />
+    <texture type="2d" name="distr_cab_image0" file="robocasa/models/assets/objects/objaverse/milk/milk_5/visual/image0.png" />
     <material name="robot0_Face636_001" shininess="0.45" rgba="0.901961 0.921569 0.929412 1" />
     <material name="robot0_Part__Feature017_001" shininess="0.45" />
     <material name="robot0_Part__Feature018_001" shininess="0.45" />
@@ -396,252 +396,257 @@
     <material name="distr_counter_Black_plast" shininess="0.16" rgba="0.03 0.03 0.03 1" />
     <material name="distr_counter_plastic_transp" shininess="0.16" rgba="0.143 0.143 0.143 1" />
     <material name="distr_cab_lambert1.004" texture="distr_cab_image0" shininess="0.25" />
-    <mesh name="robot0_link0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/meshes/link0.stl" />
-    <mesh name="robot0_link1" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/meshes/link1.stl" />
-    <mesh name="robot0_link2" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/meshes/link2.stl" />
-    <mesh name="robot0_link3" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/meshes/link3.stl" />
-    <mesh name="robot0_link4" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/meshes/link4.stl" />
-    <mesh name="robot0_link5" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/meshes/link5.stl" />
-    <mesh name="robot0_link6" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/meshes/link6.stl" />
-    <mesh name="robot0_link7" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/meshes/link7.stl" />
-    <mesh name="robot0_link0_vis_0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_0.obj" />
-    <mesh name="robot0_link0_vis_1" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_1.obj" />
-    <mesh name="robot0_link0_vis_2" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_2.obj" />
-    <mesh name="robot0_link0_vis_3" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_3.obj" />
-    <mesh name="robot0_link0_vis_4" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_4.obj" />
-    <mesh name="robot0_link0_vis_5" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_5.obj" />
-    <mesh name="robot0_link0_vis_6" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_6.obj" />
-    <mesh name="robot0_link0_vis_7" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_7.obj" />
-    <mesh name="robot0_link0_vis_8" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_8.obj" />
-    <mesh name="robot0_link0_vis_9" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_9.obj" />
-    <mesh name="robot0_link0_vis_10" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_10.obj" />
-    <mesh name="robot0_link0_vis_11" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_11.obj" />
-    <mesh name="robot0_link1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link1_vis/link1_vis.obj" />
-    <mesh name="robot0_link2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link2_vis/link2_vis.obj" />
-    <mesh name="robot0_link3_vis_0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_0.obj" />
-    <mesh name="robot0_link3_vis_1" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_1.obj" />
-    <mesh name="robot0_link3_vis_2" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_2.obj" />
-    <mesh name="robot0_link3_vis_3" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_3.obj" />
-    <mesh name="robot0_link4_vis_0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_0.obj" />
-    <mesh name="robot0_link4_vis_1" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_1.obj" />
-    <mesh name="robot0_link4_vis_2" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_2.obj" />
-    <mesh name="robot0_link4_vis_3" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_3.obj" />
-    <mesh name="robot0_link5_vis_0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_0.obj" />
-    <mesh name="robot0_link5_vis_1" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_1.obj" />
-    <mesh name="robot0_link5_vis_2" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_2.obj" />
-    <mesh name="robot0_link6_vis_0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_0.obj" />
-    <mesh name="robot0_link6_vis_1" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_1.obj" />
-    <mesh name="robot0_link6_vis_2" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_2.obj" />
-    <mesh name="robot0_link6_vis_3" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_3.obj" />
-    <mesh name="robot0_link6_vis_4" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_4.obj" />
-    <mesh name="robot0_link6_vis_5" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_5.obj" />
-    <mesh name="robot0_link6_vis_6" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_6.obj" />
-    <mesh name="robot0_link6_vis_7" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_7.obj" />
-    <mesh name="robot0_link6_vis_8" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_8.obj" />
-    <mesh name="robot0_link6_vis_9" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_9.obj" />
-    <mesh name="robot0_link6_vis_10" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_10.obj" />
-    <mesh name="robot0_link6_vis_11" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_11.obj" />
-    <mesh name="robot0_link6_vis_12" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_12.obj" />
-    <mesh name="robot0_link6_vis_13" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_13.obj" />
-    <mesh name="robot0_link6_vis_14" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_14.obj" />
-    <mesh name="robot0_link6_vis_15" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_15.obj" />
-    <mesh name="robot0_link6_vis_16" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_16.obj" />
-    <mesh name="robot0_link7_vis_0" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_0.obj" />
-    <mesh name="robot0_link7_vis_1" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_1.obj" />
-    <mesh name="robot0_link7_vis_2" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_2.obj" />
-    <mesh name="robot0_link7_vis_3" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_3.obj" />
-    <mesh name="robot0_link7_vis_4" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_4.obj" />
-    <mesh name="robot0_link7_vis_5" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_5.obj" />
-    <mesh name="robot0_link7_vis_6" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_6.obj" />
-    <mesh name="robot0_link7_vis_7" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_7.obj" />
-    <mesh name="mobilebase0_omron_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/bases/meshes/omron_mobile_base/omron_0.obj" />
-    <mesh name="mobilebase0_omron_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/bases/meshes/omron_mobile_base/omron_1.obj" />
-    <mesh name="mobilebase0_omron_2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/bases/meshes/omron_mobile_base/omron_2.obj" />
-    <mesh name="mobilebase0_omron_3_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/bases/meshes/omron_mobile_base/omron_3.obj" />
-    <mesh name="mobilebase0_omron_4_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/bases/meshes/omron_mobile_base/omron_4.obj" />
-    <mesh name="mobilebase0_omron_5_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/bases/meshes/omron_mobile_base/omron_5.obj" />
-    <mesh name="mobilebase0_omron_6_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/bases/meshes/omron_mobile_base/omron_6.obj" />
-    <mesh name="mobilebase0_omron_7_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/bases/meshes/omron_mobile_base/omron_7.obj" />
-    <mesh name="gripper0_right_hand" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/grippers/meshes/panda_gripper/hand.stl" />
-    <mesh name="gripper0_right_hand_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/grippers/meshes/panda_gripper/hand_vis.stl" />
-    <mesh name="gripper0_right_finger" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/grippers/meshes/panda_gripper/finger.stl" />
-    <mesh name="gripper0_right_finger_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/grippers/meshes/panda_gripper/finger_vis.stl" />
-    <mesh name="gripper0_right_finger_vis2" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robosuite/robosuite/models/assets/grippers/meshes/panda_gripper/finger_longer.stl" />
-    <mesh name="outlet_room_outlet_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/outlet_0.obj" scale="0.15 0.15 0.15" />
-    <mesh name="utensil_rack_room_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/utensil_racks/black_plastic/visuals/model_0.obj" scale="0.4 0.4 0.4" />
-    <mesh name="utensil_rack_room_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/utensil_racks/black_plastic/visuals/model_1.obj" scale="0.4 0.4 0.4" />
-    <mesh name="utensil_rack_room_model_2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/utensil_racks/black_plastic/visuals/model_2.obj" scale="0.4 0.4 0.4" />
-    <mesh name="light_switch_room_light_switch_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/light_switch_0.obj" scale="0.15 0.15 0.15" />
-    <mesh name="light_switch_2_room_light_switch_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/light_switch_0.obj" scale="0.15 0.15 0.15" />
-    <mesh name="outlet_2_room_outlet_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/outlet_0.obj" scale="0.15 0.15 0.15" />
-    <mesh name="outlet_3_room_outlet_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/outlet_0.obj" scale="0.15 0.15 0.15" />
-    <mesh name="stovetop_main_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/model_0.obj" scale="0.774648 0.774648 0.774648" />
-    <mesh name="stovetop_main_group_knob_rear_right_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/knob_rear_right_0.obj" scale="0.774648 0.774648 0.774648" />
-    <mesh name="stovetop_main_group_knob_front_left_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/knob_front_left_0.obj" scale="0.774648 0.774648 0.774648" />
-    <mesh name="stovetop_main_group_knob_front_right_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/knob_front_right_0.obj" scale="0.774648 0.774648 0.774648" />
-    <mesh name="stovetop_main_group_knob_rear_left_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/knob_rear_left_0.obj" scale="0.774648 0.774648 0.774648" />
-    <mesh name="hood_main_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/hoods/pack_2/visuals/model_0.obj" scale="1.10728 1.06643 1.10728" />
-    <mesh name="coffee_machine_main_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_0.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_1.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_2.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_3_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_3.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_4_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_4.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_5_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_5.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_6_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_6.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_7_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_7.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_8_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_8.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_9_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_9.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_10_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_10.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_11_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_11.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="coffee_machine_main_group_model_12_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_12.obj" scale="0.501402 0.501402 0.501402" />
-    <mesh name="toaster_main_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/toasters/basic_popup_2/visuals/model_0.obj" scale="0.3 0.3 0.3" />
-    <mesh name="toaster_main_group_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/toasters/basic_popup_2/visuals/model_1.obj" scale="0.3 0.3 0.3" />
-    <mesh name="utensil_holder_main_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/utensil_holders/holder_1/visuals/model_0.obj" scale="0.35 0.35 0.35" />
-    <mesh name="utensil_holder_main_group_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/utensil_holders/holder_1/visuals/model_1.obj" scale="0.35 0.35 0.35" />
-    <mesh name="utensil_holder_main_group_model_2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/utensil_holders/holder_1/visuals/model_2.obj" scale="0.35 0.35 0.35" />
-    <mesh name="utensil_holder_main_group_model_3_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/utensil_holders/holder_1/visuals/model_3.obj" scale="0.35 0.35 0.35" />
-    <mesh name="stool_1_front_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_0.obj" />
-    <mesh name="stool_1_front_group_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_1.obj" />
-    <mesh name="stool_1_front_group_model_2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_2.obj" />
-    <mesh name="stool_2_front_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_0.obj" />
-    <mesh name="stool_2_front_group_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_1.obj" />
-    <mesh name="stool_2_front_group_model_2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_2.obj" />
-    <mesh name="stool_3_front_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_0.obj" />
-    <mesh name="stool_3_front_group_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_1.obj" />
-    <mesh name="stool_3_front_group_model_2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_2.obj" />
-    <mesh name="sink_left_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/sinks/concrete_sink/visuals/model_0.obj" scale="0.916667 0.916667 0.916667" />
-    <mesh name="sink_left_group_spout_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/sinks/concrete_sink/visuals/spout_0.obj" scale="0.916667 0.916667 0.916667" />
-    <mesh name="sink_left_group_handle_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/sinks/concrete_sink/visuals/handle_0.obj" scale="0.916667 0.916667 0.916667" />
-    <mesh name="dishwasher_left_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/dishwashers/pack_2/visuals/model_0.obj" scale="0.907083 0.760316 0.89" />
-    <mesh name="dishwasher_left_group_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/dishwashers/pack_2/visuals/model_1.obj" scale="0.907083 0.760316 0.89" />
-    <mesh name="plant_left_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/model_0.obj" scale="0.3 0.3 0.3" />
-    <mesh name="plant_left_group_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/model_1.obj" scale="0.3 0.3 0.3" />
-    <mesh name="plant_left_group_model_2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/model_2.obj" scale="0.3 0.3 0.3" />
-    <mesh name="plant_left_group_model_3_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/model_3.obj" scale="0.3 0.3 0.3" />
-    <mesh name="paper_towel_left_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/accessories/paper_towel_holders/holder_4/visuals/model_0.obj" scale="0.35 0.35 0.35" />
-    <mesh name="fridge_right_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/fridges/pack_2/visuals/model_0.obj" scale="1.81558 2.00336 1.78" />
-    <mesh name="fridge_right_group_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/fridges/pack_2/visuals/model_1.obj" scale="1.81558 2.00336 1.78" />
-    <mesh name="oven_right_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/ovens/pack_1/visuals/model_0.obj" scale="0.779407 0.722972 0.68" />
-    <mesh name="oven_right_group_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/ovens/pack_1/visuals/model_1.obj" scale="0.779407 0.722972 0.68" />
-    <mesh name="oven_right_group_model_2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/ovens/pack_1/visuals/model_2.obj" scale="0.779407 0.722972 0.68" />
-    <mesh name="microwave_right_group_model_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_0.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_model_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_1.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_model_2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_2.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_model_3_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_3.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_model_4_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_4.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_model_5_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_5.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_model_6_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_6.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_model_7_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_7.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_model_8_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_8.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_model_9_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_9.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_model_10_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_10.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_door_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_0.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_door_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_1.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_door_2_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_2.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_door_3_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_3.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_door_4_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_4.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="microwave_right_group_door_5_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_5.obj" scale="0.75 0.735294 0.75" />
-    <mesh name="obj_model_normalized_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/visual/model_normalized_0.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_22._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_22.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_23._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_23.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_21._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_21.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_20._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_20.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_24._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_24.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_30._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_30.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_18._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_18.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_19._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_19.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_31._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_31.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_25._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_25.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_27._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_27.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_26._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_26.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_9._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_9.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_8._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_8.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_6._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_6.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_7._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_7.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_5._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_5.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_4._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_4.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_0._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_0.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_1._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_1.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_3._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_3.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_2._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_2.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_17._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_17.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_16._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_16.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_28._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_28.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_14._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_14.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_15._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_15.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_29._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_29.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_11._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_11.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_10._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_10.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_12._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_12.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="obj_model_normalized_collision_13._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_13.obj" scale="0.0675 0.0675 0.0675" />
-    <mesh name="distr_counter_model_normalized_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/visual/model_normalized_0.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_1_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/visual/model_normalized_1.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_22._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_22.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_23._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_23.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_21._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_21.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_20._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_20.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_24._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_24.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_30._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_30.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_18._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_18.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_19._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_19.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_31._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_31.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_25._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_25.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_27._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_27.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_26._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_26.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_9._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_9.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_8._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_8.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_6._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_6.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_7._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_7.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_5._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_5.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_4._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_4.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_0._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_0.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_1._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_1.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_3._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_3.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_2._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_2.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_17._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_17.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_16._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_16.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_28._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_28.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_14._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_14.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_15._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_15.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_29._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_29.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_11._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_11.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_10._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_10.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_12._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_12.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_counter_model_normalized_collision_13._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_13.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
-    <mesh name="distr_cab_model_normalized_0_vis" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/visual/model_normalized_0.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_22._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_22.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_23._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_23.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_21._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_21.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_20._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_20.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_24._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_24.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_30._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_30.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_18._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_18.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_19._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_19.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_31._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_31.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_25._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_25.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_27._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_27.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_26._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_26.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_9._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_9.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_8._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_8.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_6._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_6.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_7._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_7.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_5._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_5.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_4._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_4.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_0._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_0.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_1._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_1.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_3._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_3.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_2._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_2.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_17._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_17.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_16._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_16.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_28._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_28.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_14._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_14.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_15._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_15.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_29._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_29.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_11._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_11.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_10._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_10.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_12._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_12.obj" scale="0.17 0.17 0.17" />
-    <mesh name="distr_cab_model_normalized_collision_13._coll" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_13.obj" scale="0.17 0.17 0.17" />
-  <texture name="apt_wood_tex" type="2d" file="/Users/dporfiri/Documents/bin/stretch_mujoco/third_party/robocasa/robocasa/models/assets/textures/wood/light_wood_planks.png" /><material name="apt_hardwood" texture="apt_wood_tex" texuniform="true" texrepeat="5 5" shininess="0.08" reflectance="0.04" /><material name="apt_wood" texture="apt_wood_tex" texuniform="true" texrepeat="2 2" shininess="0.12" reflectance="0.04" /><texture name="apt_drywall_tex" type="2d" builtin="checker" rgb1="0.94 0.93 0.90" rgb2="0.90 0.89 0.86" width="64" height="64" /><material name="apt_drywall" texture="apt_drywall_tex" texuniform="true" texrepeat="12 12" shininess="0.01" /><texture name="apt_carpet_tex" type="2d" builtin="checker" rgb1="0.47 0.45 0.42" rgb2="0.51 0.49 0.46" width="64" height="64" /><material name="apt_carpet" texture="apt_carpet_tex" texuniform="true" texrepeat="18 18" shininess="0" /><texture name="apt_fabric_tex" type="2d" builtin="checker" rgb1="0.25 0.37 0.49" rgb2="0.29 0.41 0.53" width="64" height="64" /><material name="apt_fabric" texture="apt_fabric_tex" texuniform="true" texrepeat="14 14" shininess="0.02" /><texture name="apt_bedding_tex" type="2d" builtin="checker" rgb1="0.81 0.82 0.83" rgb2="0.72 0.75 0.78" width="64" height="64" /><material name="apt_bedding" texture="apt_bedding_tex" texuniform="true" texrepeat="8 8" shininess="0.01" /><material name="apt_trim" rgba="0.93 0.92 0.88 1" shininess="0.08" /><material name="apt_glass" rgba="0.55 0.72 0.82 0.22" shininess="0.7" reflectance="0.15" /><mesh name="apt_sofa_mesh" file="/Users/dporfiri/Documents/bin/stretch_house_assets/sofa.obj" /><mesh name="apt_coffee_table_mesh" file="/Users/dporfiri/Documents/bin/stretch_house_assets/coffee_table.obj" /><mesh name="apt_bed_frame_mesh" file="/Users/dporfiri/Documents/bin/stretch_house_assets/bed_frame.obj" /><mesh name="apt_mattress_mesh" file="/Users/dporfiri/Documents/bin/stretch_house_assets/mattress.obj" /></asset>
+    <mesh name="robot0_link0" file="robosuite/models/assets/robots/panda/meshes/link0.stl" />
+    <mesh name="robot0_link1" file="robosuite/models/assets/robots/panda/meshes/link1.stl" />
+    <mesh name="robot0_link2" file="robosuite/models/assets/robots/panda/meshes/link2.stl" />
+    <mesh name="robot0_link3" file="robosuite/models/assets/robots/panda/meshes/link3.stl" />
+    <mesh name="robot0_link4" file="robosuite/models/assets/robots/panda/meshes/link4.stl" />
+    <mesh name="robot0_link5" file="robosuite/models/assets/robots/panda/meshes/link5.stl" />
+    <mesh name="robot0_link6" file="robosuite/models/assets/robots/panda/meshes/link6.stl" />
+    <mesh name="robot0_link7" file="robosuite/models/assets/robots/panda/meshes/link7.stl" />
+    <mesh name="robot0_link0_vis_0" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_0.obj" />
+    <mesh name="robot0_link0_vis_1" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_1.obj" />
+    <mesh name="robot0_link0_vis_2" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_2.obj" />
+    <mesh name="robot0_link0_vis_3" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_3.obj" />
+    <mesh name="robot0_link0_vis_4" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_4.obj" />
+    <mesh name="robot0_link0_vis_5" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_5.obj" />
+    <mesh name="robot0_link0_vis_6" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_6.obj" />
+    <mesh name="robot0_link0_vis_7" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_7.obj" />
+    <mesh name="robot0_link0_vis_8" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_8.obj" />
+    <mesh name="robot0_link0_vis_9" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_9.obj" />
+    <mesh name="robot0_link0_vis_10" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_10.obj" />
+    <mesh name="robot0_link0_vis_11" file="robosuite/models/assets/robots/panda/obj_meshes/link0_vis/link0_vis_11.obj" />
+    <mesh name="robot0_link1_vis" file="robosuite/models/assets/robots/panda/obj_meshes/link1_vis/link1_vis.obj" />
+    <mesh name="robot0_link2_vis" file="robosuite/models/assets/robots/panda/obj_meshes/link2_vis/link2_vis.obj" />
+    <mesh name="robot0_link3_vis_0" file="robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_0.obj" />
+    <mesh name="robot0_link3_vis_1" file="robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_1.obj" />
+    <mesh name="robot0_link3_vis_2" file="robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_2.obj" />
+    <mesh name="robot0_link3_vis_3" file="robosuite/models/assets/robots/panda/obj_meshes/link3_vis/link3_vis_3.obj" />
+    <mesh name="robot0_link4_vis_0" file="robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_0.obj" />
+    <mesh name="robot0_link4_vis_1" file="robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_1.obj" />
+    <mesh name="robot0_link4_vis_2" file="robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_2.obj" />
+    <mesh name="robot0_link4_vis_3" file="robosuite/models/assets/robots/panda/obj_meshes/link4_vis/link4_vis_3.obj" />
+    <mesh name="robot0_link5_vis_0" file="robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_0.obj" />
+    <mesh name="robot0_link5_vis_1" file="robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_1.obj" />
+    <mesh name="robot0_link5_vis_2" file="robosuite/models/assets/robots/panda/obj_meshes/link5_vis/link5_vis_2.obj" />
+    <mesh name="robot0_link6_vis_0" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_0.obj" />
+    <mesh name="robot0_link6_vis_1" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_1.obj" />
+    <mesh name="robot0_link6_vis_2" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_2.obj" />
+    <mesh name="robot0_link6_vis_3" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_3.obj" />
+    <mesh name="robot0_link6_vis_4" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_4.obj" />
+    <mesh name="robot0_link6_vis_5" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_5.obj" />
+    <mesh name="robot0_link6_vis_6" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_6.obj" />
+    <mesh name="robot0_link6_vis_7" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_7.obj" />
+    <mesh name="robot0_link6_vis_8" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_8.obj" />
+    <mesh name="robot0_link6_vis_9" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_9.obj" />
+    <mesh name="robot0_link6_vis_10" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_10.obj" />
+    <mesh name="robot0_link6_vis_11" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_11.obj" />
+    <mesh name="robot0_link6_vis_12" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_12.obj" />
+    <mesh name="robot0_link6_vis_13" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_13.obj" />
+    <mesh name="robot0_link6_vis_14" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_14.obj" />
+    <mesh name="robot0_link6_vis_15" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_15.obj" />
+    <mesh name="robot0_link6_vis_16" file="robosuite/models/assets/robots/panda/obj_meshes/link6_vis/link6_vis_16.obj" />
+    <mesh name="robot0_link7_vis_0" file="robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_0.obj" />
+    <mesh name="robot0_link7_vis_1" file="robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_1.obj" />
+    <mesh name="robot0_link7_vis_2" file="robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_2.obj" />
+    <mesh name="robot0_link7_vis_3" file="robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_3.obj" />
+    <mesh name="robot0_link7_vis_4" file="robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_4.obj" />
+    <mesh name="robot0_link7_vis_5" file="robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_5.obj" />
+    <mesh name="robot0_link7_vis_6" file="robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_6.obj" />
+    <mesh name="robot0_link7_vis_7" file="robosuite/models/assets/robots/panda/obj_meshes/link7_vis/link7_vis_7.obj" />
+    <mesh name="mobilebase0_omron_0_vis" file="robosuite/models/assets/bases/meshes/omron_mobile_base/omron_0.obj" />
+    <mesh name="mobilebase0_omron_1_vis" file="robosuite/models/assets/bases/meshes/omron_mobile_base/omron_1.obj" />
+    <mesh name="mobilebase0_omron_2_vis" file="robosuite/models/assets/bases/meshes/omron_mobile_base/omron_2.obj" />
+    <mesh name="mobilebase0_omron_3_vis" file="robosuite/models/assets/bases/meshes/omron_mobile_base/omron_3.obj" />
+    <mesh name="mobilebase0_omron_4_vis" file="robosuite/models/assets/bases/meshes/omron_mobile_base/omron_4.obj" />
+    <mesh name="mobilebase0_omron_5_vis" file="robosuite/models/assets/bases/meshes/omron_mobile_base/omron_5.obj" />
+    <mesh name="mobilebase0_omron_6_vis" file="robosuite/models/assets/bases/meshes/omron_mobile_base/omron_6.obj" />
+    <mesh name="mobilebase0_omron_7_vis" file="robosuite/models/assets/bases/meshes/omron_mobile_base/omron_7.obj" />
+    <mesh name="gripper0_right_hand" file="robosuite/models/assets/grippers/meshes/panda_gripper/hand.stl" />
+    <mesh name="gripper0_right_hand_vis" file="robosuite/models/assets/grippers/meshes/panda_gripper/hand_vis.stl" />
+    <mesh name="gripper0_right_finger" file="robosuite/models/assets/grippers/meshes/panda_gripper/finger.stl" />
+    <mesh name="gripper0_right_finger_vis" file="robosuite/models/assets/grippers/meshes/panda_gripper/finger_vis.stl" />
+    <mesh name="gripper0_right_finger_vis2" file="robosuite/models/assets/grippers/meshes/panda_gripper/finger_longer.stl" />
+    <mesh name="outlet_room_outlet_0_vis" file="robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/outlet_0.obj" scale="0.15 0.15 0.15" />
+    <mesh name="utensil_rack_room_model_0_vis" file="robocasa/models/assets/fixtures/accessories/utensil_racks/black_plastic/visuals/model_0.obj" scale="0.4 0.4 0.4" />
+    <mesh name="utensil_rack_room_model_1_vis" file="robocasa/models/assets/fixtures/accessories/utensil_racks/black_plastic/visuals/model_1.obj" scale="0.4 0.4 0.4" />
+    <mesh name="utensil_rack_room_model_2_vis" file="robocasa/models/assets/fixtures/accessories/utensil_racks/black_plastic/visuals/model_2.obj" scale="0.4 0.4 0.4" />
+    <mesh name="light_switch_room_light_switch_0_vis" file="robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/light_switch_0.obj" scale="0.15 0.15 0.15" />
+    <mesh name="light_switch_2_room_light_switch_0_vis" file="robocasa/models/assets/fixtures/accessories/light_switches/white_wide_switch/visuals/light_switch_0.obj" scale="0.15 0.15 0.15" />
+    <mesh name="outlet_2_room_outlet_0_vis" file="robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/outlet_0.obj" scale="0.15 0.15 0.15" />
+    <mesh name="outlet_3_room_outlet_0_vis" file="robocasa/models/assets/fixtures/accessories/outlets/simple_white/visuals/outlet_0.obj" scale="0.15 0.15 0.15" />
+    <mesh name="stovetop_main_group_model_0_vis" file="robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/model_0.obj" scale="0.774648 0.774648 0.774648" />
+    <mesh name="stovetop_main_group_knob_rear_right_0_vis" file="robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/knob_rear_right_0.obj" scale="0.774648 0.774648 0.774648" />
+    <mesh name="stovetop_main_group_knob_front_left_0_vis" file="robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/knob_front_left_0.obj" scale="0.774648 0.774648 0.774648" />
+    <mesh name="stovetop_main_group_knob_front_right_0_vis" file="robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/knob_front_right_0.obj" scale="0.774648 0.774648 0.774648" />
+    <mesh name="stovetop_main_group_knob_rear_left_0_vis" file="robocasa/models/assets/fixtures/stovetops/pack_1_top_induc/visuals/knob_rear_left_0.obj" scale="0.774648 0.774648 0.774648" />
+    <mesh name="hood_main_group_model_0_vis" file="robocasa/models/assets/fixtures/hoods/pack_2/visuals/model_0.obj" scale="1.10728 1.06643 1.10728" />
+    <mesh name="coffee_machine_main_group_model_0_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_0.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_1_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_1.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_2_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_2.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_3_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_3.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_4_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_4.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_5_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_5.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_6_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_6.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_7_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_7.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_8_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_8.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_9_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_9.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_10_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_10.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_11_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_11.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="coffee_machine_main_group_model_12_vis" file="robocasa/models/assets/fixtures/coffee_machines/delonghi_espresso_2/visuals/model_12.obj" scale="0.501402 0.501402 0.501402" />
+    <mesh name="toaster_main_group_model_0_vis" file="robocasa/models/assets/fixtures/toasters/basic_popup_2/visuals/model_0.obj" scale="0.3 0.3 0.3" />
+    <mesh name="toaster_main_group_model_1_vis" file="robocasa/models/assets/fixtures/toasters/basic_popup_2/visuals/model_1.obj" scale="0.3 0.3 0.3" />
+    <mesh name="utensil_holder_main_group_model_0_vis" file="robocasa/models/assets/fixtures/accessories/utensil_holders/holder_1/visuals/model_0.obj" scale="0.35 0.35 0.35" />
+    <mesh name="utensil_holder_main_group_model_1_vis" file="robocasa/models/assets/fixtures/accessories/utensil_holders/holder_1/visuals/model_1.obj" scale="0.35 0.35 0.35" />
+    <mesh name="utensil_holder_main_group_model_2_vis" file="robocasa/models/assets/fixtures/accessories/utensil_holders/holder_1/visuals/model_2.obj" scale="0.35 0.35 0.35" />
+    <mesh name="utensil_holder_main_group_model_3_vis" file="robocasa/models/assets/fixtures/accessories/utensil_holders/holder_1/visuals/model_3.obj" scale="0.35 0.35 0.35" />
+    <mesh name="stool_1_front_group_model_0_vis" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_0.obj" />
+    <mesh name="stool_1_front_group_model_1_vis" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_1.obj" />
+    <mesh name="stool_1_front_group_model_2_vis" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_2.obj" />
+    <mesh name="stool_2_front_group_model_0_vis" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_0.obj" />
+    <mesh name="stool_2_front_group_model_1_vis" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_1.obj" />
+    <mesh name="stool_2_front_group_model_2_vis" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_2.obj" />
+    <mesh name="stool_3_front_group_model_0_vis" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_0.obj" />
+    <mesh name="stool_3_front_group_model_1_vis" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_1.obj" />
+    <mesh name="stool_3_front_group_model_2_vis" file="robocasa/models/assets/fixtures/accessories/stools/stool_1_1/visuals/model_2.obj" />
+    <mesh name="sink_left_group_model_0_vis" file="robocasa/models/assets/fixtures/sinks/concrete_sink/visuals/model_0.obj" scale="0.916667 0.916667 0.916667" />
+    <mesh name="sink_left_group_spout_0_vis" file="robocasa/models/assets/fixtures/sinks/concrete_sink/visuals/spout_0.obj" scale="0.916667 0.916667 0.916667" />
+    <mesh name="sink_left_group_handle_0_vis" file="robocasa/models/assets/fixtures/sinks/concrete_sink/visuals/handle_0.obj" scale="0.916667 0.916667 0.916667" />
+    <mesh name="dishwasher_left_group_model_0_vis" file="robocasa/models/assets/fixtures/dishwashers/pack_2/visuals/model_0.obj" scale="0.907083 0.760316 0.89" />
+    <mesh name="dishwasher_left_group_model_1_vis" file="robocasa/models/assets/fixtures/dishwashers/pack_2/visuals/model_1.obj" scale="0.907083 0.760316 0.89" />
+    <mesh name="plant_left_group_model_0_vis" file="robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/model_0.obj" scale="0.3 0.3 0.3" />
+    <mesh name="plant_left_group_model_1_vis" file="robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/model_1.obj" scale="0.3 0.3 0.3" />
+    <mesh name="plant_left_group_model_2_vis" file="robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/model_2.obj" scale="0.3 0.3 0.3" />
+    <mesh name="plant_left_group_model_3_vis" file="robocasa/models/assets/fixtures/accessories/plants/aloe/visuals/model_3.obj" scale="0.3 0.3 0.3" />
+    <mesh name="paper_towel_left_group_model_0_vis" file="robocasa/models/assets/fixtures/accessories/paper_towel_holders/holder_4/visuals/model_0.obj" scale="0.35 0.35 0.35" />
+    <mesh name="fridge_right_group_model_0_vis" file="robocasa/models/assets/fixtures/fridges/pack_2/visuals/model_0.obj" scale="1.81558 2.00336 1.78" />
+    <mesh name="fridge_right_group_model_1_vis" file="robocasa/models/assets/fixtures/fridges/pack_2/visuals/model_1.obj" scale="1.81558 2.00336 1.78" />
+    <mesh name="oven_right_group_model_0_vis" file="robocasa/models/assets/fixtures/ovens/pack_1/visuals/model_0.obj" scale="0.779407 0.722972 0.68" />
+    <mesh name="oven_right_group_model_1_vis" file="robocasa/models/assets/fixtures/ovens/pack_1/visuals/model_1.obj" scale="0.779407 0.722972 0.68" />
+    <mesh name="oven_right_group_model_2_vis" file="robocasa/models/assets/fixtures/ovens/pack_1/visuals/model_2.obj" scale="0.779407 0.722972 0.68" />
+    <mesh name="microwave_right_group_model_0_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_0.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_model_1_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_1.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_model_2_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_2.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_model_3_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_3.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_model_4_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_4.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_model_5_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_5.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_model_6_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_6.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_model_7_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_7.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_model_8_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_8.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_model_9_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_9.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_model_10_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/model_10.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_door_0_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_0.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_door_1_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_1.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_door_2_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_2.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_door_3_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_3.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_door_4_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_4.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="microwave_right_group_door_5_vis" file="robocasa/models/assets/fixtures/microwaves/hamilton_beach/visuals/door_5.obj" scale="0.75 0.735294 0.75" />
+    <mesh name="obj_model_normalized_0_vis" file="robocasa/models/assets/objects/objaverse/jam/jam_2/visual/model_normalized_0.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_22._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_22.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_23._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_23.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_21._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_21.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_20._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_20.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_24._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_24.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_30._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_30.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_18._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_18.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_19._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_19.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_31._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_31.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_25._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_25.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_27._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_27.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_26._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_26.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_9._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_9.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_8._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_8.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_6._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_6.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_7._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_7.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_5._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_5.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_4._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_4.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_0._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_0.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_1._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_1.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_3._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_3.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_2._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_2.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_17._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_17.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_16._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_16.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_28._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_28.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_14._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_14.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_15._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_15.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_29._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_29.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_11._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_11.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_10._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_10.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_12._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_12.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="obj_model_normalized_collision_13._coll" file="robocasa/models/assets/objects/objaverse/jam/jam_2/collision/model_normalized_collision_13.obj" scale="0.0675 0.0675 0.0675" />
+    <mesh name="distr_counter_model_normalized_0_vis" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/visual/model_normalized_0.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_1_vis" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/visual/model_normalized_1.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_22._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_22.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_23._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_23.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_21._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_21.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_20._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_20.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_24._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_24.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_30._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_30.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_18._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_18.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_19._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_19.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_31._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_31.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_25._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_25.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_27._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_27.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_26._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_26.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_9._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_9.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_8._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_8.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_6._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_6.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_7._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_7.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_5._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_5.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_4._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_4.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_0._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_0.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_1._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_1.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_3._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_3.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_2._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_2.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_17._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_17.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_16._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_16.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_28._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_28.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_14._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_14.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_15._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_15.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_29._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_29.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_11._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_11.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_10._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_10.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_12._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_12.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_counter_model_normalized_collision_13._coll" file="robocasa/models/assets/objects/objaverse/water_bottle/water_bottle_4/collision/model_normalized_collision_13.obj" refquat="0.707107 0 0 -0.707107" scale="0.2025 0.2025 0.2025" />
+    <mesh name="distr_cab_model_normalized_0_vis" file="robocasa/models/assets/objects/objaverse/milk/milk_5/visual/model_normalized_0.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_22._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_22.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_23._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_23.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_21._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_21.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_20._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_20.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_24._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_24.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_30._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_30.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_18._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_18.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_19._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_19.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_31._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_31.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_25._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_25.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_27._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_27.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_26._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_26.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_9._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_9.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_8._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_8.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_6._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_6.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_7._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_7.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_5._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_5.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_4._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_4.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_0._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_0.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_1._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_1.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_3._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_3.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_2._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_2.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_17._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_17.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_16._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_16.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_28._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_28.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_14._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_14.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_15._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_15.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_29._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_29.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_11._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_11.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_10._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_10.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_12._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_12.obj" scale="0.17 0.17 0.17" />
+    <mesh name="distr_cab_model_normalized_collision_13._coll" file="robocasa/models/assets/objects/objaverse/milk/milk_5/collision/model_normalized_collision_13.obj" scale="0.17 0.17 0.17" />
+  <texture name="apt_wood_tex" type="2d" file="robocasa/models/assets/textures/wood/light_wood_planks.png" /><material name="apt_hardwood" texture="apt_wood_tex" texuniform="true" texrepeat="5 5" shininess="0.08" reflectance="0.04" /><material name="apt_wood" texture="apt_wood_tex" texuniform="true" texrepeat="2 2" shininess="0.12" reflectance="0.04" /><texture name="apt_drywall_tex" type="2d" builtin="checker" rgb1="0.94 0.93 0.90" rgb2="0.90 0.89 0.86" width="64" height="64" /><material name="apt_drywall" texture="apt_drywall_tex" texuniform="true" texrepeat="12 12" shininess="0.01" /><texture name="apt_carpet_tex" type="2d" builtin="checker" rgb1="0.47 0.45 0.42" rgb2="0.51 0.49 0.46" width="64" height="64" /><material name="apt_carpet" texture="apt_carpet_tex" texuniform="true" texrepeat="18 18" shininess="0" /><texture name="apt_fabric_tex" type="2d" builtin="checker" rgb1="0.25 0.37 0.49" rgb2="0.29 0.41 0.53" width="64" height="64" /><material name="apt_fabric" texture="apt_fabric_tex" texuniform="true" texrepeat="14 14" shininess="0.02" /><texture name="apt_bedding_tex" type="2d" builtin="checker" rgb1="0.81 0.82 0.83" rgb2="0.72 0.75 0.78" width="64" height="64" /><material name="apt_bedding" texture="apt_bedding_tex" texuniform="true" texrepeat="8 8" shininess="0.01" /><material name="apt_trim" rgba="0.93 0.92 0.88 1" shininess="0.08" /><material name="apt_glass" rgba="0.55 0.72 0.82 0.22" shininess="0.7" reflectance="0.15" />
+    <mesh name="apt_sofa_mesh" file="large_house_assets/sofa.obj" />
+    <mesh name="apt_coffee_table_mesh" file="large_house_assets/coffee_table.obj" />
+    <mesh name="apt_bed_frame_mesh" file="large_house_assets/bed_frame.obj" />
+    <mesh name="apt_mattress_mesh" file="large_house_assets/mattress.obj" />
+  </asset>
 
   <worldbody>
     <light pos="2 -2 2" dir="0.009999 0.009999 -0.9999" directional="true" castshadow="false" ambient="0.3 0.3 0.3" diffuse="0.3 0.3 0.3" />

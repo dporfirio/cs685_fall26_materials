@@ -22,18 +22,19 @@ def _package_directory(module) -> Path:
     return Path(module.__file__).resolve().parent
 
 
-def _resolve_asset_path(path: str) -> str:
-    """Translate paths embedded by the model exporter to this installation."""
+def _resolve_asset_path(path: str, scene_directory: Path) -> str:
+    """Resolve assets from this installation or beside the packaged scene."""
     mappings = (
-        ("/third_party/robocasa/robocasa/", _package_directory(robocasa)),
-        ("/third_party/robosuite/robosuite/", _package_directory(robosuite)),
-        ("/stretch_mujoco/stretch_mujoco/", _package_directory(stretch_mujoco)),
+        ("robocasa/", "/third_party/robocasa/robocasa/", robocasa),
+        ("robosuite/", "/third_party/robosuite/robosuite/", robosuite),
+        ("stretch_mujoco/", "/stretch_mujoco/stretch_mujoco/", stretch_mujoco),
     )
-    for marker, package_directory in mappings:
-        if marker in path:
-            relative_path = path.split(marker, 1)[1]
-            return str(package_directory / relative_path)
-    return path
+    for prefix, exporter_marker, module in mappings:
+        if path.startswith(prefix):
+            return str(_package_directory(module) / path.removeprefix(prefix))
+        if exporter_marker in path:
+            return str(_package_directory(module) / path.split(exporter_marker, 1)[1])
+    return str(scene_directory / path)
 
 
 def _apply_start_lift(model):
@@ -72,15 +73,13 @@ def _load_large_house_model():
     )
     root = ET.parse(scene_path).getroot()
     for element in root.iter():
-        asset_path = element.get("file")
-        if asset_path:
-            element.set("file", _resolve_asset_path(asset_path))
+        for attribute in ("file", "assetdir"):
+            asset_path = element.get(attribute)
+            if asset_path:
+                element.set(attribute, _resolve_asset_path(asset_path, scene_path.parent))
 
     xml = ET.tostring(root, encoding="unicode")
     model = mujoco.MjModel.from_xml_string(xml)
-    # The included robot XML carries a pose beside the kitchen cabinets.
-    # Default to the kitchen floor center and preserve the original height.
-    # Launch overrides arrive through this driver process's environment.
     base = model.body("base_link")
     joint_id = int(base.jntadr[0])
     if joint_id < 0 or model.jnt_type[joint_id] != mujoco.mjtJoint.mjJNT_FREE:
@@ -92,17 +91,17 @@ def _load_large_house_model():
     if not all(math.isfinite(value) for value in (start_x, start_y)):
         raise ValueError("start_x and start_y must be finite numbers")
     model.qpos0[qpos_address : qpos_address + 2] = [start_x, start_y]
-    if start_yaw != "model":
-        yaw = float(start_yaw)
-        if not math.isfinite(yaw):
-            raise ValueError("start_yaw must be a finite angle in radians or 'model'")
-        # Replace yaw while retaining the model's roll and pitch.
-        quaternion = model.qpos0[qpos_address + 3 : qpos_address + 7]
-        w, x, y, z = quaternion
-        original_yaw = math.atan2(2 * (w * z + x * y), 1 - 2 * (y * y + z * z))
-        half_delta = (yaw - original_yaw) / 2
-        c, s = math.cos(half_delta), math.sin(half_delta)
-        quaternion[:] = [c * w - s * z, c * x - s * y, c * y + s * x, c * z + s * w]
+    # Preserve the large house's original +Y heading for start_yaw:=model.
+    yaw = math.pi / 2 if start_yaw == "model" else float(start_yaw)
+    if not math.isfinite(yaw):
+        raise ValueError("start_yaw must be a finite angle in radians or 'model'")
+    # Replace yaw while retaining the model's roll and pitch.
+    quaternion = model.qpos0[qpos_address + 3 : qpos_address + 7]
+    w, x, y, z = quaternion
+    original_yaw = math.atan2(2 * (w * z + x * y), 1 - 2 * (y * y + z * z))
+    half_delta = (yaw - original_yaw) / 2
+    c, s = math.cos(half_delta), math.sin(half_delta)
+    quaternion[:] = [c * w - s * z, c * x - s * y, c * y + s * x, c * z + s * w]
     _apply_start_lift(model)
     return model, xml, {}
 
